@@ -19,15 +19,16 @@
 
 import AnimalCard from '../components/icons/AnimalCard.vue';
 import {onMounted, ref} from 'vue';
+import axios from 'axios'
+
 
 const animals= ref([]);
 
 onMounted(()=>{
-    fetch('http://localhost:3000/animals/tous')
-        .then((response) => response.json() )
-        .then((data) => {
-            console.log(data);
-            animals.value = data
+    axios.get('http://localhost:3000/animals/tous')
+        .then((response) => {
+            console.log(response);
+            animals.value = response.data
         })
 })
 

@@ -3,17 +3,16 @@
 
          <RouterLink to="/">Home</RouterLink>
          <RouterLink to="/about">About</RouterLink>
-         <RouterLink to="/animal">Animal</RouterLink>
          <RouterLink to="/signUp">Sign Up</RouterLink>
+         <RouterLink to="/signIn">Sign In</RouterLink>
 
   </nav>
+  
 </template>
 
 <script>
-
 export default{
-  name:"NavBar",
-  
+  name: "NavBar",
 }
 </script>
 

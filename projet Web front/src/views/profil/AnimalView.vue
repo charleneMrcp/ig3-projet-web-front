@@ -17,7 +17,7 @@
 
 <script setup>
 
-import AnimalCard from '../components/icons/AnimalCard.vue';
+import AnimalCard from '../../components/icons/profil/AnimalCard.vue';
 import {onMounted, ref} from 'vue';
 import axios from 'axios'
 
@@ -25,7 +25,7 @@ import axios from 'axios'
 const animals= ref([]);
 
 onMounted(()=>{
-    axios.get('http://localhost:3000/animals/tous')
+    axios.get('animals/tous')
         .then((response) => {
             console.log(response);
             animals.value = response.data

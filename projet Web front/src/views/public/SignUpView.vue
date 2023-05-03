@@ -4,8 +4,10 @@
 </template>
 
 <script setup>
+
 import { VueElement } from 'vue';
-import SignUpForm from '../components/icons/SignUpForm.vue';
+import SignUpForm from '../../components/public/SignUpForm.vue';
+
 
 </script>
 

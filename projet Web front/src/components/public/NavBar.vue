@@ -2,7 +2,6 @@
     <nav class="navbar">
 
          <RouterLink to="/">Home</RouterLink>
-         <RouterLink to="/about">About</RouterLink>
          <RouterLink to="/signUp">Sign Up</RouterLink>
          <RouterLink to="/signIn">Sign In</RouterLink>
 

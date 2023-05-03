@@ -67,7 +67,7 @@ export default{
                     // Réinitialiser le formulaire
                     const form = document.querySelector('form');
                     form.reset();
-                    router.push('/signIn/profil')
+                    router.push('/signIn/recherche')
                 
                 })
                 .catch(error => { console.error(error); });
@@ -83,6 +83,7 @@ export default{
 
        
     },
+    
 }
 </script>
 

@@ -5,7 +5,9 @@
 
 <script setup>
 import { VueElement } from 'vue';
-import SignInForm from '../components/icons/SignInForm.vue';
+import SignInForm from '../../components/public/SignInForm.vue';
+
+
 
 </script>
 

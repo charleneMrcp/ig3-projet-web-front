@@ -5,12 +5,17 @@
     <p> Nom: {{  user.nom }}</p>
     <p> Prenom:  {{  user.prenom }}</p>
     <p> Age: {{  user.age }}</p>
+
+    <router-link :to="{name: 'petsitter-rdv'}" tag="button">Prendre rdv</router-link>
+
+
   </div>
 </template>
 
 <script>
 import { reactive, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import router from '../../router';
 import axios from 'axios'
 axios.defaults.headers.common['Authorization']= 'Bearer '+ localStorage.getItem('token');
 export default {
@@ -23,6 +28,8 @@ export default {
     
     const sitter = ref({});
     const user = ref({});
+
+    
 
     onMounted(() => {
       axios.get(`/petsitters/getpetsitter/${routeParams.id}`)
@@ -42,7 +49,7 @@ export default {
     return {
       id: routeParams.id,
       sitter,
-      user
+      user, 
       
     }
   }

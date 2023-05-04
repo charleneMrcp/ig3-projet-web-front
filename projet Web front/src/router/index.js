@@ -24,10 +24,14 @@ const router = createRouter({
         {path:'animal/add', name: 'animal-add', component: () => { return import('../views/profil/animal/AddAnimal.vue') }},
         {path:'animal/:id', name:'animal-details', props: true, component:() => import('../views/profil/animal/Animalinfo.vue')},
         {path:'animal/:id/update', name: 'animal-up', props: true, component: () => { return import('../views/profil/animal/updateAnimal.vue') }},
+        
         {path:'recherche',name: 'recherche',component: () => import('../views/profil/RechercheView.vue')},
         {path:'recherche/:id', name:'petsitter-details', props:true , component: ()=> import('../views/profil/Petsitterinfo.vue')},
+        {path:'recherche/:id/rdv', name: 'petsitter-rdv', props: true, component: () => { return import('../views/profil/RdvView.vue') }},
+        
         {path:'profil',name: 'profil',component: () => import('../views/profil/ProfilView.vue')},
         {path:'reservation',name: 'reservation',component: () => import('../views/profil/ReservationView.vue')},
+        {path:'reservation/:id', name:'reserv-details', props: true, component:() => import('../views/profil/Reservationinfo.vue')},
       ]
     }  
   ]

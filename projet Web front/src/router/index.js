@@ -30,6 +30,7 @@ const router = createRouter({
         {path:'recherche/:id/rdv', name: 'petsitter-rdv', props: true, component: () => { return import('../views/profil/RdvView.vue') }},
         
         {path:'profil',name: 'profil',component: () => import('../views/profil/ProfilView.vue')},
+        {path:'pro', name:'pro',component: ()=> import('../views/pro/ProView.vue')},
         {path:'reservation',name: 'reservation',component: () => import('../views/profil/ReservationView.vue')},
         {path:'reservation/:id', name:'reserv-details', props: true, component:() => import('../views/profil/Reservationinfo.vue')},
       ]

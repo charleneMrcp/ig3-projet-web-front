@@ -210,8 +210,6 @@ export default {
       animal, state, v$, getAnimal, id    
     }
   },
-
-
   methods:{
         async update(){
             this.v$.$validate()

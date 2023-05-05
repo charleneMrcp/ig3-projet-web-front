@@ -6,6 +6,7 @@
         <li><RouterLink to="/signIn/profil">Mon profil</RouterLink></li>
         <li><RouterLink to="/signIn/animal">Mes animaux</RouterLink></li>
         <li><RouterLink to="/signIn/reservation">Mes reservations</RouterLink></li>
+        <li><RouterLink to="/signIn/pro"> Pro </RouterLink></li>
         <li><button @click="signOut"> Sign Out </button></li>
       </ul>
     </div>

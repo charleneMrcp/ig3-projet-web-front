@@ -1,7 +1,13 @@
 <template>
-    <div>
-        <form @submit.prevent="signIn">
-            <div class="form">
+    <div class="composant">
+        
+        <div class="image">
+            <img src="/src/images/image_connexion.png" alt="Ceci est l'image de connexion"/>  
+        </div>
+               
+        <form @submit.prevent="signIn" class="form">
+            <h1> Connexion </h1>    
+            <div class="boite">
                 <label for="Email"> Email </label>
                 <input type="mail" placeholder="Email" v-model="state.mail">
                 <span v-if="v$.mail.$error">
@@ -9,7 +15,7 @@
                 </span>
             </div>
 
-            <div class="form">
+            <div class="boite">
                 <label for="Password"> Password </label>
                 <input type="password" placeholder="Mot de passe" v-model="state.mdp">
                 <span v-if="v$.mdp.$error">
@@ -17,7 +23,7 @@
                 </span>
             </div>
 
-            <div class="form">
+            <div class="boite">
                 <button type="submit"> Valider </button>
             </div>
         </form>
@@ -87,5 +93,36 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
+.composant{
+    
+    width: 80%;
+    margin: auto;
+    display: flex;
+    height: 60vh;
+    border: 1px solid black;
+    
+}
+
+
+img{
+    max-width:100%;
+    max-height: 100%;
+}
+
+
+.form{
+    
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+h1{
+    text-align: center;
+}
+
 </style>

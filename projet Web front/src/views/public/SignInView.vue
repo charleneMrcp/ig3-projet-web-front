@@ -1,6 +1,9 @@
 <template>
-    <h1> This is the Sign In page</h1>
-    <SignInForm/>
+    
+    <div class="formulaire">
+        <SignInForm/>
+    </div>
+    
 </template>
 
 <script setup>
@@ -12,5 +15,7 @@ import SignInForm from '../../components/public/SignInForm.vue';
 </script>
 
 <style>
-
+.formulaire{
+    margin-top: 10vh;;
+}
 </style>

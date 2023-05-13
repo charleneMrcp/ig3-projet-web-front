@@ -41,6 +41,7 @@ onMounted(()=>{
             console.log(response);
             animals.value = response.data
         })
+        .catch(err => console.log(err) )
 })
     
 

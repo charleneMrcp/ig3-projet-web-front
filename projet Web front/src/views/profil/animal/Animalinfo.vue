@@ -1,24 +1,97 @@
 <template>
     <div>
-        <h1> Animal details </h1>
 
-        <button @click="supprimer">Supprimer</button>
-        
-        <button @click="modifier"> Modifier</button>
+      <div class="contain">
+            <h1>{{ animal.nom_pet}}</h1>
+            <img class="image"  :src="animal.type === 'Chat' ? '/src/images/chat.png' : '/src/images/chien.png'" alt="Ceci est la photo de l'animal">
+            
+            <div class="boutons">
+              <button @click="supprimer">Supprimer</button>
+              <button @click="modifier"> Modifier</button>
+            </div>
+            
 
-        <p> Id : {{ id }}</p>
-        <p> Nom : {{ animal.nom_pet }} </p>
-        <p> Type: {{ animal.type }}</p>
-        <p> Sexe: {{ animal.sexe }}</p>
-        <p> Age: {{ animal.age }}</p>
-        <p> Taille: {{ animal.taille }}</p>
-        <p> Poids: {{ animal.poids }}</p>
-        <p> Race: {{ animal.race }}</p>
-        <p> vs_dog: {{ animal.vs_dog }}</p>
-        <p> vs_cat: {{ animal.vs_cat }}</p>
-        <p> vs_humain: {{ animal.vs_humain }}</p>
-        <p> vs_enfants: {{ animal.vs_enfants }}</p>
-        <p> Description generale: {{ animal.desc_gene }}</p>
+      </div>
+      <div class="entree">
+        <div class="gauche">
+
+          <div class="boite">
+            <h3>Id:</h3>
+            <p>{{ id }}</p>
+          </div>
+
+          
+          <div class="boite">
+            <h3>Nom:</h3>
+            <p>{{ animal.nom_pet }} </p>
+          </div>
+  
+          <div class="boite">
+            <h3>Type:</h3>
+            <p>{{ animal.type }}</p>
+          </div>
+
+          <div class="boite">
+            <h3>Sexe:</h3>
+            <p>{{ animal.sexe }}</p>
+          </div>
+
+          <div class="boite">
+            <h3>Age:</h3>
+            <p>{{ animal.age }}</p>
+          </div>
+
+          <div class="boite">
+            <h3>Taille:</h3>
+            <p>{{ animal.taille }} cm</p>
+          </div>  
+
+        </div>
+      
+        <div class="droite">
+
+          <div class="boite">
+            <h3>Poids:</h3>
+            <p>{{ animal.poids }} kg</p>
+          </div>
+          
+          <div class="boite">
+            <h3>Race:</h3>
+            <p>{{ animal.race }}</p>
+          </div>
+          
+          <div class="boite">
+            <h3>Reactivite chien:</h3>
+            <p>{{ animal.vs_dog }}</p>
+          </div>
+          
+
+          <div class="boite">
+            <h3>Reactivite chat:</h3>
+            <p>{{ animal.vs_cat }}</p>
+          </div>
+         
+
+          <div class="boite">
+            <h3>Reactivite humain:</h3>
+            <p>{{ animal.vs_humain }}</p>
+          </div>
+          
+
+          <div class="boite">
+            <h3>Reactivite enfant:</h3>
+            <p>{{ animal.vs_enfants }}</p>
+          </div>
+          
+        </div>
+
+      </div>  
+      <div class="desc">
+        <div class="boite">
+            <h3>Description générale:</h3>
+            <p>{{ animal.desc_gene }}</p>
+        </div>
+      </div>
 
     </div>
 
@@ -80,3 +153,100 @@ export default {
   }
 }
 </script>
+
+
+<style scoped lang="scss">
+.boite{
+    margin:0.5rem;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    
+}
+.contain {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+    text-align: center;
+    color: #582391;
+    font-family: 'Fira sans';  
+  
+}
+.image{
+    width:7rem;
+    height: auto;
+    display:inline;
+    margin: auto;
+    padding-top: 1rem;
+}
+button{
+    width: 6rem;
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    color: var(--light)  ;
+    background-color: var(--primary) ;
+    padding: 0.5rem; 
+    margin:1rem;
+}
+button:hover{
+    background-color: mediumpurple ;
+}
+.entree{
+    border-radius: 3px;
+    background-color: rgb(235, 234, 234);
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom:0px;
+    text-align: center;
+}
+.gauche {
+    align-items: center;
+}
+
+.droite {
+
+    align-items: center;
+}
+.desc .boite{
+  margin:1rem;
+  background-color: rgb(235, 234, 234) ;
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+  
+  
+  h3{
+    margin-top: 1rem;
+    text-align: center;
+  }
+  p{
+    margin-top: 1rem;
+    text-align: center;
+    width: 40rem;
+  }
+}
+
+
+h3{
+  color:#582391;
+  font-size: 1rem;
+  width:10rem; 
+}
+.boite p{
+  margin-left: 1rem;
+  width:8rem;
+  color: var(--grey); 
+}
+
+
+</style>

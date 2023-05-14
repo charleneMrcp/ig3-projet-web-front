@@ -2,6 +2,7 @@
 
     <div class="public">      
         <NavBar/>
+
         <RouterView/>
     </div>
 
@@ -23,4 +24,5 @@ export default{
 </script>
 
 <style>
+
 </style>

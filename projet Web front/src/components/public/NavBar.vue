@@ -1,11 +1,15 @@
 <template>
-    <nav class="navbar">
+    <nav class="menu-nav">
 
-         <RouterLink to="/">Home</RouterLink>
-         <RouterLink to="/signUp">Sign Up</RouterLink>
-         <RouterLink to="/signIn">Sign In</RouterLink>
+      <ul class="menu-indicator">
 
-  </nav>
+       <li class="menu-items"><RouterLink  class="menu-link"  to="/">Home</RouterLink> </li> 
+       <li class="menu-items"><RouterLink  class="menu-link" to="/signUp">Sign Up</RouterLink> </li> 
+       <li class="menu-items"> <RouterLink class="menu-link"  to="/signIn">Sign In</RouterLink></li> 
+    
+      </ul>
+
+    </nav>
   
 </template>
 
@@ -15,35 +19,45 @@ export default{
 }
 </script>
 
-<style>
+<style lang="scss">
 
-.navbar {
-  background-color: white;
-  overflow: hidden;
-}
-
-.navbar  {
-  height: 25%;
-  list-style-type: none;
-  margin: 0;
+.menu-nav{
   padding: 0;
-  overflow: hidden;
-  font-size: 20px;
-}
+  margin: 0;
+  position: relative;
+  background-color: var(--dark);
+  display: flex;
+  
+  
+  .menu-indicator{
+    width: 100%;
+    display: inline-flex;
+    list-style-type: none;
+    justify-content: center;
+    
+    .menu-items{
+      display: inline-flex;
+
+      .menu-link{
+        display: inline-flex;
+        padding: 0.75rem 1rem;
+        color: var(--light);
+        text-decoration: none;
 
 
+        &:hover, &.router-link-exact-active{
+        background-color: var(--dark-alt);
+        color:var(--primary);
+        }
+        &.router-link-exact-active{
+          border-bottom: 5px solid var(--primary);
+        }
+      }
+      
 
-.navbar a {
-  float: right;
-  display: block;
-  color: #00bd7e;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+      
+    }
+  }
 }
 
 

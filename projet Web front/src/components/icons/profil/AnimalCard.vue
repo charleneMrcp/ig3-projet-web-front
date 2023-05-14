@@ -1,51 +1,70 @@
 <template>
     <div class="animal-card">
-        <img src="/src/images/animalProfil.png" alt="Ceci est la photo de l'animal">
+
+        <img class="animal-img"  :src="type === 'Chat' ? '/src/images/chat.png' : '/src/images/chien.png'" alt="Ceci est la photo de l'animal">
+        <h3 class="nom"> <slot name="nom"> </slot></h3>
+        <p class="type"> <slot name="type"> </slot> </p>
         
-        <div class="desc">
-            <h3> <slot name="nom"> </slot></h3>
-            <p> <slot name="type"> </slot> </p>
-        </div>
         
     </div>
 </template>
 
 <script>
 
-export default{
-    name: "AnimalCard"
+export default {
+  name: "AnimalCard",
+  props: {
+    type: {
+      type: String,
+      required: true
+    }
+  }
 }
+
     
 </script>
 
 <style scoped>
+.nom{
+    max-width: 90%;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Fira sans';
+    margin:0;
+    padding:0;
+    
+}
 .animal-card{
-    width: 32%;
-    height: 30%;
-    background-color:rgba(104, 104, 104, 0.65);
     text-align: center;
-    padding: 10px;
-    margin: 10px;
+    box-shadow: 0px 2px 8px 0px var(--grey);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    width: 15rem;
+    background-color: var(--light);
+    transition: all 0.2s ease-in-out; /* add a transition effect */
+    
 }
-
-.animal-card .desc p{
-    color: white;
-    margin: 0px;
-    padding: 0px;
-}
-
-.animal-card .desc h3{
-    color: white;
-
-    font-weight: bold;
-    margin: 0px;
+.animal-card:hover{
+    transform:scale(1.1);
 }
 
 
-img{
-    width:90%;
-    height: 60%;
+.animal-img{
+  width: 8rem;
+  clip-path: circle(60px at center  );
+  margin-top: 4.5rem;
+}
 
+.type{
+    margin: 1rem ;
+    font-size: 0.9rem;
+    overflow: hidden; 
 }
 
 </style>

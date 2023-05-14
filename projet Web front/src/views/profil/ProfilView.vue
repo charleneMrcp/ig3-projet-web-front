@@ -1,100 +1,94 @@
 <template>
 
-    <h1> This is the profil View</h1>
-
     <div class="profil">
-        <h1> Welcome {{ user.nom }} !</h1>
+        <div class="contain">
+            <h1>Votre profil</h1>
+            <img class="image" :src="state.sexe === 'Femme' ? '/src/images/fille.jpg' : '/src/images/garcon.png'" alt="Ceci est la photo du profil" />
+        </div>
 
         <div class="modif">
             <form @submit.prevent="update">
-                
-                <div>
-                    <label for="Nom"> Nom </label>
-                    <input type="text" :placeholder="user.nom" v-model="state.nom">
-                     <span v-if="v$.nom.$error">
-                        {{ v$.nom.$errors[0].$message }}
-                    </span>
-                </div>
-                <div>
-                    <label for="Prenom"> Prenom </label>
-                    <input type="text" :placeholder="user.prenom" v-model="state.prenom">
-                    <span v-if="v$.prenom.$error">
-                         {{ v$.prenom.$errors[0].$message }}
-                    </span>
-                </div>
+                <div class="entree">
 
-                <div>
-                    <label for="Age"> Age </label>
-                    <input type="text" :placeholder="user.age" v-model="state.age">
-                    <span v-if="v$.age.$error">
-                        {{ v$.age.$errors[0].$message }}
-                    </span>
-                </div>
+                    <div class="gauche">
 
-                <div>
-                    <label for="Telephone"> Telephone </label>
-                    <input type="tel" :placeholder="user.tel" v-model="state.tel">
-                    <span v-if="v$.tel.$error">
-                        {{ v$.tel.$errors[0].$message }}
-                    </span>
+                        <div class="boite">
+                            <label for="Identite"> Identité </label>
+                            <input type="radio" id="one" value="Homme" v-model="state.sexe" />
+                            <label for="one">Homme</label>
 
-                </div>
+                            <input type="radio" id="two" value="Femme" v-model="state.sexe" />
+                            <label for="two">Femme</label>
 
-                
-                <div class="check">
-                    <label for="Logement"> Type de logement </label>
+                            <span v-if="v$.sexe.$error">
+                                {{ v$.sexe.$errors[0].$message }}
+                            </span>
+                        </div>
+                        <div class="boite">
+                            <label for="Nom"> Nom </label>
+                            <input type="text" :placeholder="user.nom" v-model="state.nom">
+                            <span v-if="v$.nom.$error">
+                                {{ v$.nom.$errors[0].$message }}
+                            </span>
+                        </div>
 
-                    <input type="radio" id="three" value="Appartement" v-model="state.logement" />
-                    <label for="three">Appartement</label>
-
-                    <input type="radio" id="four" value="Maison" v-model="state.logement" />
-                    <label for="four">Maison</label>
-
-                    
-                </div>
-
-                <div>
-                    <label for="Adresse"> Adresse </label>
-                    <input type="text" :placeholder="user.addr" v-model="state.addr">
-                    <span v-if="v$.addr.$error">
-                        {{ v$.addr.$errors[0].$message }}
-                    </span>
-                </div>
-
-                <div >
-                    <label for="code_post"> Code postal </label>
-                    <input type="text" :placeholder="user.code_post" v-model="state.code_post">
-                    <span v-if="v$.code_post.$error">
-                        {{ v$.code_post.$errors[0].$message }}
-                    </span>
-                </div>
-
-                <div class="check">
-
-                    <input type="radio" id="one" value="Homme" v-model="state.sexe" />
-                    <label for="one">Homme</label>
-
-                    <input type="radio" id="two" value="Femme" v-model="state.sexe" />
-                    <label for="two">Femme</label>
-
-                    <span v-if="v$.sexe.$error">
-                        {{ v$.sexe.$errors[0].$message }}
-                    </span>
-                    
-                </div>
+                        <div class="boite">
+                            <label for="Prenom"> Prenom </label>
+                            <input type="text" :placeholder="user.prenom" v-model="state.prenom">
+                            <span v-if="v$.prenom.$error">
+                                {{ v$.prenom.$errors[0].$message }}
+                            </span>
+                        </div>
+                        <div class="boite">
+                            <label for="Age"> Age </label>
+                            <input type="text" :placeholder="user.age" v-model="state.age">
+                            <span v-if="v$.age.$error">
+                                {{ v$.age.$errors[0].$message }}
+                            </span>
+                        </div>
                         
+                    </div>
 
+                    <div class="droite">
+                        <div class="boite">
+                            <label for="Telephone"> Telephone </label>
+                            <input type="tel" :placeholder="user.tel" v-model="state.tel">
+                            <span v-if="v$.tel.$error">
+                                {{ v$.tel.$errors[0].$message }}
+                            </span>
 
-                <button type="submit"> Modifier </button>
+                        </div>
+                        <div class="boite">
+                            <label for="Logement"> Logement </label>
+
+                            <input class="check" type="radio" id="three" value="Appartement" v-model="state.logement" />
+                            <label for="three">Appartement</label>
+
+                            <input class="check" type="radio" id="four" value="Maison" v-model="state.logement" />
+                            <label for="four">Maison</label>
+
+                        </div>
+                        <div class="boite">
+                            <label for="Adresse"> Adresse </label>
+                            <input type="text" :placeholder="user.addr" v-model="state.addr">
+                            <span v-if="v$.addr.$error">
+                                {{ v$.addr.$errors[0].$message }}
+                            </span>
+                        </div>
+                        <div class="boite">
+                            <label for="code_post"> Code postal </label>
+                            <input type="text" :placeholder="user.code_post" v-model="state.code_post">
+                            <span v-if="v$.code_post.$error">
+                                {{ v$.code_post.$errors[0].$message }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit"> Enregistrer les modifications  </button>
 
             </form>
-           
-            
-
         </div>
-        
     </div>
-    
 </template>
 
 <script>
@@ -187,3 +181,86 @@ export default {
 
 
 </script>
+<style lang="scss" scoped>
+
+.boite{
+    margin:0.5rem;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    
+}
+.gauche {
+    align-items: center;
+}
+
+.droite {
+
+    align-items: center;
+}
+
+.contain {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.image{
+    width:7rem;
+    height: auto;
+    display:inline;
+    margin: auto;
+    padding-top: 1rem;
+}
+.entree{
+    border-radius: 3px;
+    background-color: rgb(235, 234, 234) ;
+    
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+h1{
+    text-align: center;
+    color: #582391; 
+    font-family: 'Fira sans';    
+}
+form{
+    text-align: center;
+}
+button{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    color: var(--light)  ;
+    background-color: var(--primary) ;
+    padding: 0.5rem; 
+    
+}
+button:hover{
+    background-color: mediumpurple ;
+}
+
+input{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    padding: 0.1rem 0.2rem;
+    color: grey
+}
+label{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    padding: 0.1rem 0.2rem;
+    width:5rem;
+    margin-right: 1rem;
+}
+.check{
+    margin-left: 0.5rem;    
+}
+
+
+</style>

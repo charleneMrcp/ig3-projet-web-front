@@ -1,8 +1,8 @@
 <template> 
-    <UserHeader/>
+
     <div class="user"> 
         <ProfilNavBar/>
-        <div class="us_contain">
+        <div class="main">
             <RouterView/>
         </div>
         
@@ -14,7 +14,7 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router';
 import ProfilNavBar from '../../components/icons/profil/ProfilNavBar.vue';
-import UserHeader from '../../components/icons/profil/UserHeader.vue';
+
 import axios from 'axios'
 
 axios.defaults.headers.common['Authorization']= 'Bearer '+ localStorage.getItem('token');
@@ -22,21 +22,26 @@ axios.defaults.headers.common['Authorization']= 'Bearer '+ localStorage.getItem(
 export default{
     name: 'ProfilLayout',
     components:{
-        ProfilNavBar, UserHeader,
+        ProfilNavBar,
     }
 }
 
 </script>
 
-<style>
+<style lang="scss">
 .user{
     display: flex;
     border: solid 1px black ; 
 }
-.us_contain{
-    
-    width:100%;
-    padding: 10px;
-    
-}
+
+.main{
+    flex: 1 1 0;
+    padding:2rem;
+
+    @media (max-width: 768px){
+      padding-left: 6rem;
+    }
+
+
+  }
 </style>

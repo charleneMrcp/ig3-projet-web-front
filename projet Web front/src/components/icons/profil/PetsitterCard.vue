@@ -1,50 +1,85 @@
 <template>
     <div class="petsitter-card">
-        <img src="/src/images/iconhumain.png" alt="Ceci est la photo du petsitter">
         
-        <div class="desc">
-            <h2> <slot name="nom"> </slot></h2>
-            <h3> <slot name="prenom"> </slot></h3>
-            <p> <slot name="age"> </slot> </p>
+        
+        <img class="profile-img"  :src="sexe === 'Femme' ? '/src/images/fille.jpg' : '/src/images/garcon.png'" alt="Ceci est la photo du petsitter">
+
+        <div class="name">
+            <h1 class="nom"> <slot name="nom"></slot> </h1>
+            <h1 class="prenom"><slot name="prenom"></slot></h1>
         </div>
         
-    </div>
+        <p class="age"> <slot name="age"> </slot> </p>
+        
+    </div> 
+   
 </template>
 
-<script setup>
+<script>
 
-
+export default {
+  name: "PetsitterCard",
+  props: {
+    sexe: {
+      type: String,
+      required: true
+    }
+  }
+}
     
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+.name{
+    max-width: 90%;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    .nom{
+        padding-right: 5px;
+        font-size: 1.5rem;
+    }
+    .prenom{
+        font-size:1.5rem;
+    }
+}
+*{
+    box-sizing: border-box;
+    font-family: 'Fira sans';
+    margin:0;
+    padding:0;
+    
+}
 .petsitter-card{
-    width: 60px;
-    height: 80px;
-    background-color:rgba(104, 104, 104, 0.65);
     text-align: center;
-    padding: 10px;
-    margin: 10px;
+    box-shadow: 0px 2px 8px 0px var(--grey);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    width: 15rem;
+    background-color: var(--light);
+    transition: all 0.2s ease-in-out; /* add a transition effect */
+    
 }
-
-.petsitter-card .desc p{
-    color: white;
-    margin: 0px;
-    padding: 0px;
-}
-
-.petsitter-card .desc h3{
-    color: white;
-
-    font-weight: bold;
-    margin: 0px;
+.petsitter-card:hover{
+    transform:scale(1.1);
 }
 
 
-img{
-    width:90%;
-    height: 60%;
-
+.profile-img{
+  width: 8rem;
+  clip-path: circle(60px at center  );
+  margin-top: 2.5rem;
 }
+
+.age{
+    margin: 1rem ;
+    font-size: 0.9rem;
+    overflow: hidden;
+    
+    
+}
+
 
 </style>

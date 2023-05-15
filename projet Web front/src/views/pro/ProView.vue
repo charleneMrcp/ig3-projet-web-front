@@ -1,8 +1,8 @@
 <template>
     <div v-if="isPro">
-      <h1>You're a pro !</h1>
-      <button @click="supprimer"> Delete your pro account </button>
-        <ReservDisplay>
+      
+      <button @click="supprimer">Supprimer le compte Pro </button>
+      <ReservDisplay>
         
       </ReservDisplay> 
       
@@ -60,3 +60,18 @@ export default{
 }
 
 </script>
+
+<style scoped lang="scss">
+
+button{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    color: var(--light)  ;
+    background-color: var(--primary) ;
+    padding: 0.5rem; 
+    
+}
+button:hover{
+    background-color: mediumpurple ;
+}
+</style>

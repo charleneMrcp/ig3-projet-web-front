@@ -1,83 +1,87 @@
 <template>
+    <div class="contain">
+        <h1> Renseigner les informations</h1>
+    </div>
 
-    <h1> This is the rdv page</h1>
+    <div class="modif">
+        <form @submit.prevent="rdv">
+            <div class="entree">
+                <div class="gauche">
+                    <div class="boite">
+                        <label for="date_debut"> Date de début </label>
+                        <input type="date" v-model="state.date_debut">
 
-    <form @submit.prevent="rdv">
-    
-        <div>
-            <label for="date_debut"> Date de début </label>
-            <input type="date" v-model="state.date_debut">
+                        <span v-if="v$.date_debut.$error">
+                            {{ v$.date_debut.$errors[0].$message }}
+                        </span>   
+                        
+                    </div>
+                    <div class="boite">
+                        <label for="date_fin"> Date de fin </label>
+                        <input type="date" v-model="state.date_fin">
 
-            <span v-if="v$.date_debut.$error">
-                {{ v$.date_debut.$errors[0].$message }}
-            </span>   
-            
-        </div>
-        <div>
-            <label for="date_fin"> Date de fin </label>
-            <input type="date" v-model="state.date_fin">
+                        <span v-if="v$.date_fin.$error">
+                            {{ v$.date_fin.$errors[0].$message }}
+                        </span>   
+                        
+                    </div>
+                    <div class="boite">
+                        <label for="h_debut"> Heure de début </label>
+                        <input type="time" v-model="state.h_debut">
 
-            <span v-if="v$.date_fin.$error">
-                {{ v$.date_fin.$errors[0].$message }}
-            </span>   
-            
-        </div>
-        <div>
-            <label for="h_debut"> Heure de début </label>
-            <input type="time" v-model="state.h_debut">
+                        <span v-if="v$.h_debut.$error">
+                            {{ v$.h_debut.$errors[0].$message }}
+                        </span>   
+                        
+                    </div>
 
-            <span v-if="v$.h_debut.$error">
-                {{ v$.h_debut.$errors[0].$message }}
-            </span>   
-            
-        </div>
+                    <div class="boite">
+                        <label for="h_fin"> Heure de fin </label>
+                        <input type="time" v-model="state.h_fin">
 
-        <div>
-            <label for="h_fin"> Heure de fin </label>
-            <input type="time" v-model="state.h_fin">
+                        <span v-if="v$.h_fin.$error">
+                            {{ v$.h_fin.$errors[0].$message }}
+                        </span>   
+                        
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="boite">
+                        <label for="acti-select">Choisis une activite:</label>
 
-            <span v-if="v$.h_fin.$error">
-                {{ v$.h_fin.$errors[0].$message }}
-            </span>   
-            
-        </div>
-        <div>
-            <label for="acti-select">Choisis une activite:</label>
+                        <select name="activites" id="acti-select" v-model="state.libelle_acti">
+                            <option value="">--Merci de choisir une option--</option>
+                            <option v-for="(activite, index) in activites" :key="index" :value="activite.libelle_acti">{{ activite.libelle_acti }}</option>
+                        </select>
+                        <span v-if="v$.libelle_acti.$error">
+                            {{ v$.libelle_acti.$errors[0].$message }}
+                        </span>
+                    </div>
+                    <div class="boite">
+                        <label for="pet-select">Pour quel animal:</label>
 
-            <select name="activites" id="acti-select" v-model="state.libelle_acti">
-                <option value="">--Merci de choisir une option--</option>
-                <option v-for="(activite, index) in activites" :key="index" :value="activite.libelle_acti">{{ activite.libelle_acti }}</option>
-            </select>
-            <span v-if="v$.libelle_acti.$error">
-                {{ v$.libelle_acti.$errors[0].$message }}
-            </span>
-        </div>
-        <div>
-            <label for="pet-select">Pour quel animal:</label>
+                        <select name="animal" id="pet-select" v-model="state.pet_id">
+                            <option value="">--Merci de choisir une option--</option>
+                            <option v-for="(animal, index) in animaux" :key="index" :value="animal.pet_id">{{ animal.nom_pet }}</option>
+                        </select>
+                        <span v-if="v$.pet_id.$error">
+                            {{ v$.pet_id.$errors[0].$message }}
+                        </span>
+                    </div>
+                    <div class="boite">
+                        <label for="quick_desc"> Donnez une description de votre demande </label>
+                        <textarea v-model="state.quick_desc"></textarea>
 
-            <select name="animal" id="pet-select" v-model="state.pet_id">
-                <option value="">--Merci de choisir une option--</option>
-                <option v-for="(animal, index) in animaux" :key="index" :value="animal.pet_id">{{ animal.nom_pet }}</option>
-            </select>
-            <span v-if="v$.pet_id.$error">
-                {{ v$.pet_id.$errors[0].$message }}
-            </span>
-        </div>
-        <div>
-            <label for="quick_desc"> Donnez une description de votre demande </label>
-            <input type="text" v-model="state.quick_desc">
-
-            <span v-if="v$.quick_desc.$error">
-                {{ v$.quick_desc.$errors[0].$message }}
-            </span>   
-            
-        </div>
-        
-    
-    
-    <button type="submit"> Valider </button>
-    
-    </form>
+                        <span v-if="v$.quick_desc.$error">
+                            {{ v$.quick_desc.$errors[0].$message }}
+                        </span>   
+                        
+                    </div>
+                </div>
+            </div>
+            <button type="submit"> Valider </button>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -168,3 +172,87 @@ export default {
 
 
 </script>
+
+<style lang="scss" scoped>
+
+.boite{
+    margin:0.5rem;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    
+}
+.gauche {
+    align-items: center;
+}
+
+.droite {
+
+    align-items: center;
+}
+
+.contain {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.image{
+    width:7rem;
+    height: auto;
+    display:inline;
+    margin: auto;
+    padding-top: 1rem;
+}
+.entree{
+    border-radius: 3px;
+    background-color: rgb(235, 234, 234) ;
+    
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+h1{
+    text-align: center;
+    color: #582391; 
+    font-family: 'Fira sans';    
+}
+form{
+    text-align: center;
+}
+button{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    color: var(--light)  ;
+    background-color: var(--primary) ;
+    padding: 0.5rem; 
+    
+}
+button:hover{
+    background-color: mediumpurple ;
+}
+
+input{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    padding: 0.1rem 0.2rem;
+    color: grey
+}
+label{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    padding: 0.1rem 0.2rem;
+    width:8rem;
+    margin-right: 1rem;
+}
+.check{
+    margin-left: 0.5rem;    
+}
+
+
+</style>

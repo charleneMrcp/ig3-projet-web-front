@@ -1,25 +1,26 @@
 <template>
 
     <div class="reservation">
-      <h1> Your Reservations </h1>
+      <h1> Mes Réservations </h1>
       
-      <div v-for="(reservation, index) in reservations" :key="index">
-        <router-link :to="{ name: 'reserv-details', params: {id: reservation.res_id } }">
-            <div class="reserv-wrap">
-            <ReservationCard>
-                <template #sitter> {{  reservation?.sitter_id}}</template>
+      <div class="cartes">
+        <div v-for="(reservation, index) in reservations" :key="index">
+          <router-link class="reservation" :to="{ name: 'reserv-details', params: {id: reservation.res_id } }">
+            
+            <ReservationCard :validation="reservation?.validation">
+                <template #sitter_nom> {{  reservation?.nom}}</template>
+                <template #sitter_prenom> {{  reservation?.prenom}}</template>
                 <template #date_debut>{{reservation?.date_debut}}</template>
                 <template #date_fin>{{reservation?.date_fin}}</template>
                 <template #h_debut> {{reservation?.h_debut}}</template>
                 <template #h_fin> {{reservation?.h_fin}}</template>
-                <template #pet_id> {{reservation?.pet_id}}</template>
-                <template #quick_desc>{{reservation?.quick_desc}}</template>
-                <template #validation>{{reservation?.validation}}</template>
+                <template #nom_pet> {{reservation?.nom_pet}}</template>
                 
 
             </ReservationCard>
-            </div>
-        </router-link>
+            
+          </router-link>
+        </div>
       </div> 
 
     </div>
@@ -58,7 +59,33 @@ onMounted(()=>{
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
+h1{
+    font-family: 'Fira sans' ;
+    font-size: 2rem;
+    text-align: center;
+    padding: 2rem;
+    color: #582391;
+}
+.cartes{
+    width:90%;
+    margin:auto;
+    display:grid;
+    justify-content: center;
+    gap: 2rem;
+    position:relative;
+    
+}
+.animal{
+  text-decoration: none;
+}
+.cartes{
+
+  grid-template-columns: 1fr;
+}
+.reservation{
+  text-decoration: none;
+}
 
 </style>

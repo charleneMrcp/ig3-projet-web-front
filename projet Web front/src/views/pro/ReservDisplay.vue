@@ -1,27 +1,31 @@
 <template>
 
     <div class="reservation">
-      <h1> Your Reservations </h1>
+      <h1> Réservations Professionelles </h1>
       
       <div v-for="(reservation, index) in reservations" :key="index">
         
         <div class="reserv-wrap">
-
-            <button @click="() => accepter(reservation)">Accepter</button>
-            <button @click="() => refuser(reservation)">Refuser</button>
-   
-        <ReservationCard>
-            <template #sitter> {{  reservation?.sitter_id}}</template>
-            <template #date_debut>{{reservation?.date_debut}}</template>
-            <template #date_fin>{{reservation?.date_fin}}</template>
-            <template #h_debut> {{reservation?.h_debut}}</template>
-            <template #h_fin> {{reservation?.h_fin}}</template>
-            <template #pet_id> {{reservation?.pet_id}}</template>
-            <template #quick_desc>{{reservation?.quick_desc}}</template>
-            <template #validation>{{reservation?.validation}}</template>
-            
-            
-        </ReservationCard>
+            <div class="bouttons">
+                <button  @click="() => accepter(reservation)"><span class="material-icons"> check</span></button>
+                   
+                <button  @click="() => refuser(reservation)"><span class="material-icons"> close</span></button>
+            </div>
+           
+            <div class="la">
+                <ReservationCard :validation="reservation?.validation">
+                    <template #sitter> {{  reservation?.sitter_id}}</template>
+                    <template #date_debut>{{reservation?.date_debut}}</template>
+                    <template #date_fin>{{reservation?.date_fin}}</template>
+                    <template #h_debut> {{reservation?.h_debut}}</template>
+                    <template #h_fin> {{reservation?.h_fin}}</template>
+                    <template #pet_id> {{reservation?.pet_id}}</template>
+                    <template #quick_desc>{{reservation?.quick_desc}}</template>
+                    <template #validation>{{reservation?.validation}}</template>
+                    
+                    
+                </ReservationCard>
+            </div>
         </div>
         
       </div> 
@@ -94,9 +98,49 @@ export default{
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+h1{
+    font-family: 'Fira sans' ;
+    font-size: 2rem;
+    text-align: center;
+    padding: 2rem;
+    color: #582391;
+}
 
 .reserv-wrap{
-    border: 1px solid black;
+    display: flex;
+    justify-content: start;
+    flex:1;
+    margin: 1rem;
 }
+
+button{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    color: var(--light)  ;
+    background-color: mediumpurple ;
+    padding: 0.5rem; 
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    width: 100%;
+    height: 45%;
+    margin: auto;
+
+}
+button:hover{
+    background-color: var(--primary) ;
+}
+.decallage{
+    margin-bottom: 1rem;
+}
+.bouttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+}
+.la{
+    flex:1;
+}
+
 </style>

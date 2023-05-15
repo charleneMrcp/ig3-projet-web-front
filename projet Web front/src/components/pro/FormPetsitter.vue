@@ -131,11 +131,5 @@ form{
     display: flex;
     flex-direction: column;
 }
-.image{
-    width:7rem;
-    height: auto;
-    display:inline;
-    margin-bottom: 1rem;
-    padding-top: 1rem;
-}
+
 </style>

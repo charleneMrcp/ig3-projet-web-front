@@ -37,11 +37,15 @@ export default {
     justify-content: center;
     display: flex;
     .nom{
+        color:#582391;
         padding-right: 5px;
         font-size: 1.5rem;
+        font-family: 'Fira sans';
     }
     .prenom{
+        color:#582391;
         font-size:1.5rem;
+        font-family: 'Fira sans';
     }
 }
 *{
@@ -63,7 +67,7 @@ export default {
     
 }
 .petsitter-card:hover{
-    transform:scale(1.1);
+    transform:scale(1.03);
 }
 
 
@@ -74,10 +78,11 @@ export default {
 }
 
 .age{
+    color: #582391;
     margin: 1rem ;
     font-size: 0.9rem;
     overflow: hidden;
-    
+    font-family: 'Fira sans';
     
 }
 

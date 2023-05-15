@@ -228,11 +228,13 @@ button:hover{
   h3{
     margin-top: 1rem;
     text-align: center;
+    font-family: 'Fira sans';
   }
   p{
     margin-top: 1rem;
     text-align: center;
     width: 40rem;
+    font-family: 'Fira sans';
   }
 }
 
@@ -241,11 +243,13 @@ h3{
   color:#582391;
   font-size: 1rem;
   width:10rem; 
+  font-family: 'Fira sans';
 }
 .boite p{
   margin-left: 1rem;
   width:8rem;
   color: var(--grey); 
+  font-family: 'Fira sans';
 }
 
 

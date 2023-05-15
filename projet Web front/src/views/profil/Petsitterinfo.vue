@@ -226,12 +226,14 @@ export default {
   h3{
     margin-top: 1rem;
     text-align: center;
+    font-family: 'Fira sans';
   }
   p{
     margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: center;
     width: 40rem;
+    font-family: 'Fira sans';
   }
 }
 

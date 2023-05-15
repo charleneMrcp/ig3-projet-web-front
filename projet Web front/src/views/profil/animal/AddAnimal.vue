@@ -1,130 +1,131 @@
 <template>
-    <div class="formulaireAjout">      
-      
-      <h3> AJOUT </h3>
+    <h1>Renseignez ces informations</h1>
 
-      <form @submit.prevent="adding" >
-        <div>
-            <label for="Nom"> Nom </label>
-            <input type="text" placeholder="Nom" v-model="state.nom_pet">
-            <span v-if="v$.nom_pet.$error">
-                {{ v$.nom_pet.$errors[0].$message }}
-            </span>
-        </div>
+    <div class="formulaireAjout"> 
+        <form @submit.prevent="adding" >
+            <div class="entree">
+                <div class="gauche">
+                    <div class="boite">
+                        <label for="Nom"> Nom </label>
+                        <input type="text" placeholder="Nom" v-model="state.nom_pet">
+                        <span v-if="v$.nom_pet.$error">
+                            {{ v$.nom_pet.$errors[0].$message }}
+                        </span>
+                    </div>
 
-        <div class="check">
-            <label for="Type"> Type d'animal </label>
+                    <div class="boite">
+                        <label for="Type"> Type d'animal </label>
 
-            <input type="radio" id="five" value="Chien" v-model="state.type" />
-            <label for="five">Chien</label>
+                        <input type="radio" id="five" value="Chien" v-model="state.type" />
+                        <label for="five">Chien</label>
 
-            <input type="radio" id="six" value="Chat" v-model="state.type" />
-            <label for="six">Chat</label>            
-        </div>
+                        <input type="radio" id="six" value="Chat" v-model="state.type" />
+                        <label for="six">Chat</label>            
+                    </div>
 
-        <div class="check">
-            <input type="radio" id="seven" value="Mâle" v-model="state.sexe" />
-            <label for="seven">Mâle</label>
+                    <div class="boite">
+                        <label for="sexe"> Sexe </label>
+                        <input type="radio" id="seven" value="Mâle" v-model="state.sexe" />
+                        <label for="seven">Mâle</label>
 
-            <input type="radio" id="eigth" value="Femelle" v-model="state.sexe" />
-            <label for="eigth">Femelle</label>
+                        <input type="radio" id="eigth" value="Femelle" v-model="state.sexe" />
+                        <label for="eigth">Femelle</label>
 
-            <span v-if="v$.sexe.$error">
-            {{ v$.sexe.$errors[0].$message }}
-            </span>
-        </div>
+                        <span v-if="v$.sexe.$error">
+                        {{ v$.sexe.$errors[0].$message }}
+                        </span>
+                    </div>
 
-        <div>
-            <label for="Age"> Age </label>
-            <input type="text" placeholder="Age" v-model="state.age">
-            <span v-if="v$.age.$error">
-            {{ v$.age.$errors[0].$message }}
-            </span>
+                    <div class="boite">
+                        <label for="Age"> Age </label>
+                        <input type="text" placeholder="Age" v-model="state.age">
+                        <span v-if="v$.age.$error">
+                        {{ v$.age.$errors[0].$message }}
+                        </span>
 
-        </div>
+                    </div>
+                    <div class="boite">
+                        <label for="Taille"> Taille </label>
+                        <input type="text" placeholder="Taille" v-model="state.taille">
+                        <span v-if="v$.taille.$error">
+                        {{ v$.taille.$errors[0].$message }}
+                        </span>
+                    </div>
 
-        <div>
-            <label for="Taille"> Taille </label>
-            <input type="text" placeholder="Taille" v-model="state.taille">
-            <span v-if="v$.taille.$error">
-            {{ v$.taille.$errors[0].$message }}
-            </span>
-        </div>
-        <div>
-            <label for="Poids"> Poids </label>
-            <input type="text" placeholder="Poids" v-model="state.poids">
-            <span v-if="v$.poids.$error">
-            {{ v$.poids.$errors[0].$message }}
-            </span>
-        </div>
-        <div>
-            <label for="Race"> Race </label>
-            <input type="text" placeholder="Race" v-model="state.race">
-            <span v-if="v$.race.$error">
-            {{ v$.race.$errors[0].$message }}
-            </span>
-        </div>
+                    <div class="boite">
+                        <label for="Poids"> Poids </label>
+                        <input type="text" placeholder="Poids" v-model="state.poids">
+                        <span v-if="v$.poids.$error">
+                        {{ v$.poids.$errors[0].$message }}
+                        </span>
+                    </div>
 
-        
-        <div class="check">
-            <label for="vs_dog"> vs_dog </label>
+                </div>
+                <div class="droite">
+                    <div class="boite">
+                        <label for="Race"> Race </label>
+                        <input type="text" placeholder="Race" v-model="state.race">
+                        <span v-if="v$.race.$error">
+                        {{ v$.race.$errors[0].$message }}
+                        </span>
+                    </div>
 
-            <input type="radio" id="nine" value="true" v-model="state.vs_dog" />
-            <label for="nine">OK</label>
+                    <div class="boite">
+                        <label for="vs_dog"> vs_dog </label>
 
-            <input type="radio" id="ten" value="false" v-model="state.vs_dog" />
-            <label for="ten">Not OK</label>
+                        <input type="radio" id="nine" value="true" v-model="state.vs_dog" />
+                        <label for="nine">OK</label>
 
-            
-        </div>
-        <div class="check">
-            <label for="vs_cat"> vs_cat </label>
+                        <input type="radio" id="ten" value="false" v-model="state.vs_dog" />
+                        <label for="ten">Not OK</label>
 
-            <input type="radio" id="eleven" value="true" v-model="state.vs_cat" />
-            <label for="eleven">OK</label>
+                        
+                    </div>
 
-            <input type="radio" id="twelve" value="false" v-model="state.vs_cat" />
-            <label for="twelve">Not OK</label>
+                    <div class="boite">
+                        <label for="vs_cat"> vs_cat </label>
 
-            
-        </div>
-        <div class="check">
-            <label for="vs_humain"> vs_humain </label>
+                        <input type="radio" id="eleven" value="true" v-model="state.vs_cat" />
+                        <label for="eleven">OK</label>
 
-            <input type="radio" id="a" value="true" v-model="state.vs_humain" />
-            <label for="a">OK</label>
+                        <input type="radio" id="twelve" value="false" v-model="state.vs_cat" />
+                        <label for="twelve">Not OK</label>
 
-            <input type="radio" id="b" value="false" v-model="state.vs_humain" />
-            <label for="b">Not OK</label>
+                        
+                    </div>
 
-            
-        </div>
-        <div class="check">
-            <label for="vs_enfants"> vs_enfants </label>
+                    <div class="boite">
+                        <label for="vs_humain"> vs_humain </label>
 
-            <input type="radio" id="c" value="true" v-model="state.vs_enfants" />
-            <label for="c">OK</label>
+                        <input type="radio" id="a" value="true" v-model="state.vs_humain" />
+                        <label for="a">OK</label>
 
-            <input type="radio" id="d" value="false" v-model="state.vs_enfants" />
-            <label for="d">Not OK</label>
+                        <input type="radio" id="b" value="false" v-model="state.vs_humain" />
+                        <label for="b">Not OK</label>
+                    </div>
+                
+                    <div class="boite">
+                        <label for="vs_enfants"> vs_enfants </label>
 
-            
-        </div>
+                        <input type="radio" id="c" value="true" v-model="state.vs_enfants" />
+                        <label for="c">OK</label>
 
-        
+                        <input type="radio" id="d" value="false" v-model="state.vs_enfants" />
+                        <label for="d">Not OK</label>
 
-        <div class="form">
-            <label for="desc_gene"> Description generale </label>
-            <input type="text" placeholder="desc..." v-model="state.desc_gene">
-            <span v-if="v$.desc_gene.$error">
-            {{ v$.desc_gene.$errors[0].$message }}
-            </span>
-        </div>
+                        
+                    </div>
 
-        <div class="form">
+                    <div class="boite">
+                        <label for="desc_gene"> Description generale </label>
+                        <input type="text" placeholder="desc..." v-model="state.desc_gene">
+                        <span v-if="v$.desc_gene.$error">
+                        {{ v$.desc_gene.$errors[0].$message }}
+                        </span>
+                    </div>
+                </div>
+            </div>
             <button type="submit"> Valider </button>
-        </div>
-
         </form>
     </div>
 </template>
@@ -210,3 +211,85 @@ export default{
     
 }
 </script>
+<style lang="scss" scoped>
+
+.boite{
+    margin:0.5rem;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    
+}
+.gauche {
+    align-items: center;
+}
+
+.droite {
+
+    align-items: center;
+}
+
+.contain {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.image{
+    width:7rem;
+    height: auto;
+    display:inline;
+    margin: auto;
+    padding-top: 1rem;
+}
+.entree{
+    border-radius: 3px;
+    background-color: rgb(235, 234, 234) ;
+    
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+h1{
+    text-align: center;
+    color: #582391; 
+    font-family: 'Fira sans';    
+}
+form{
+    text-align: center;
+}
+button{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    color: var(--light)  ;
+    background-color: var(--primary) ;
+    padding: 0.5rem; 
+    
+}
+button:hover{
+    background-color: mediumpurple ;
+}
+
+input{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    padding: 0.1rem 0.2rem;
+    color: grey
+}
+label{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    padding: 0.1rem 0.2rem;
+    width:5rem;
+    margin-right: 1rem;
+}
+.check{
+    margin-left: 0.5rem;  
+    color:grey;  
+}
+</style>

@@ -1,24 +1,60 @@
 <template>
-    <div>
-        <h1> Reserv details </h1>
+    <h1> Details de la réservation </h1>
+    <div class="infos">
+        <div class="global">
 
+          <div class="haut">
+            <div class="reserv-image">
+              <img class="image" :src="reservation.validation === true ? '/src/images/valider.png' : '/src/images/nonvalider.png'" alt="Image de l'etat de la reservation"> 
+            </div>
+
+            <div class="identite">
+              <div class="boitea">
+                <h3>Nom petsitter:</h3>
+                <p>{{reservation.nom}}</p>
+              </div>
+              <div class="boitea">
+                <h3>Animal concerné:</h3>
+                <p> {{reservation.nom_pet}} </p>
+              </div>
+            </div>
+
+          </div>
+          
+
+
+          <div class="informations">
+            <div class="gauche">
+              <div class="boite">
+                <h3>Date de debut:</h3>
+                <p>{{reservation.date_debut}}</p>
+              </div>
+              <div class="boite">
+                <h3>Date de fin:</h3>
+                <p>{{reservation.date_fin}} </p>
+              </div>
+            </div>
+
+            <div class="droite">
+              <div class="boite">
+                <h3>Heure de debut:</h3>
+                <p>  {{reservation.h_debut}} </p>
+              </div>
+              <div class="boite">
+                <h3>Heure de fin:</h3>
+                <p>{{reservation.h_fin}} </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="desc">
+            <h3>Description:</h3>
+            <p>{{reservation.quick_desc}} </p>
+          </div>
+        </div>
+        <div class="sep"></div>
         <button @click="supprimer">Supprimer</button>
-        
-        
-
-        <p> Date de debut:  {{reservation.date_debut}}</p>
-        <p> Date de fin:    {{reservation.date_fin}} </p>
-        <p> Heure de debut: {{reservation.h_debut}} </p>
-        <p> Heure de fi     {{reservation.h_fin}} </p>
-        <p> Id petsitter:   {{reservation.sitter_id}}</p>
-        <p> Animal concerné:{{reservation.pet_id}} </p>
-        <p> Description:    {{reservation.quick_desc}} </p>
-        <p> Validation:     {{reservation.validation}} </p>
-        
-
     </div>
-
-
 </template>
 
 <script>
@@ -72,3 +108,144 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.identite{
+  display: flex;
+  flex-direction: column;
+}
+.global{
+  width: 60%;
+  margin: auto;
+  background-color: rgb(235, 234, 234);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.boite{
+    margin:0.5rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    h3{
+      width:10rem;
+      color:#582391;
+      font-size: 1rem;
+      font-family: 'Fira sans'; 
+    }
+    p{
+      max-width: 8rem;
+      color: grey;
+      font-family: 'Fira sans'; 
+      font-size: 1rem;
+    }
+    
+    
+}
+.boitea{
+    margin:0.5rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    h3{
+      width:10rem;
+      color:#582391;
+      font-size: 1rem;
+      font-family: 'Fira sans'; 
+    }
+    p{
+      max-width: 8rem;
+      color: grey;
+      font-family: 'Fira sans'; 
+      font-size: 1rem;
+    }
+    
+    
+}
+h1{
+    text-align: center;
+    color: #582391;
+    font-family: 'Fira sans';  
+    margin:1rem;
+    padding-bottom: 2rem;
+}
+
+button{
+    font-size: 1rem;
+    font-family: 'Fira sans';
+    color: var(--light)  ;
+    background-color: var(--primary) ;
+    padding: 0.5rem; 
+    margin:auto;
+    width:6rem;
+}
+
+button:hover{
+    background-color: mediumpurple ;
+}
+.informations{
+  margin:2rem;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  
+}
+.haut{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.image{
+    width:7rem;
+    height: auto;
+    display:inline;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+.desc{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  display: flex  ;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 2rem;
+  h3{
+    color: #582391;
+    font-family: 'Fira sans'; 
+    
+  }
+  p{
+      max-width: 8rem;
+      color: grey;
+      font-family: 'Fira sans'; 
+      font-size: 1rem;
+      
+      width: 100%;
+    }
+}
+.infos{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.sep{
+  height: 1rem;
+}
+.reserv-image{
+  margin-top:1rem;
+  border: 3px dotted grey;
+  border-radius: 3px;
+  width: 13rem;
+  display: flex;
+  justify-content: center;
+}
+</style>

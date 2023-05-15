@@ -30,6 +30,8 @@ export default {
     margin: auto;
     justify-content: center;
     display: flex;
+    color: #582391;
+    font-family: 'Fira sans';
 }
 
 *{
@@ -51,7 +53,7 @@ export default {
     
 }
 .animal-card:hover{
-    transform:scale(1.1);
+    transform:scale(1.03);
 }
 
 
@@ -65,6 +67,8 @@ export default {
     margin: 1rem ;
     font-size: 0.9rem;
     overflow: hidden; 
+    font-family: 'Fira sans';
+    color:#582391;
 }
 
 </style>

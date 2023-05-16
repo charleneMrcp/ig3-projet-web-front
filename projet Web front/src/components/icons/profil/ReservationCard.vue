@@ -114,7 +114,7 @@ export default{
     flex-direction: row;
     justify-content: center;
     h3{
-      width:10rem;
+      padding-right: 5px;
       color: mediumpurple;
       font-size: 1rem;
       font-family: 'Fira sans'; 

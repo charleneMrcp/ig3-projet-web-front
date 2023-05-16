@@ -8,16 +8,7 @@
               <img class="image" :src="reservation.validation === true ? '/src/images/valider.png' : '/src/images/nonvalider.png'" alt="Image de l'etat de la reservation"> 
             </div>
 
-            <div class="identite">
-              <div class="boitea">
-                <h3>Nom petsitter:</h3>
-                <p>{{reservation.nom}}</p>
-              </div>
-              <div class="boitea">
-                <h3>Animal concerné:</h3>
-                <p> {{reservation.nom_pet}} </p>
-              </div>
-            </div>
+            
 
           </div>
           
@@ -52,8 +43,7 @@
             <p>{{reservation.quick_desc}} </p>
           </div>
         </div>
-        <div class="sep"></div>
-        <button @click="supprimer">Supprimer</button>
+        
     </div>
 </template>
 
@@ -83,24 +73,12 @@ export default {
         })
     })
 
-   const supprimer = ()=>{
-      axios.delete(`reservations/deleteReservation/${routeParams.id}`)
-      .then(response => {
-        console.log('Item deleted:', response.data);
-        router.push('/signIn/reservation')
-      })
-      .catch(error => {
-        console.error('Error deleting item:', error);
-    
-      });
-
-   }
+   
     
 
     return {
       id: routeParams.id,
       reservation,
-      supprimer,
       
       
       
@@ -128,7 +106,7 @@ export default {
     display: flex;
     flex-direction: column;
     h3{
-      width:10rem;
+      padding-right: 5px;
       color:#582391;
       font-size: 1rem;
       font-family: 'Fira sans'; 
@@ -149,7 +127,7 @@ export default {
     flex-direction: column;
     flex-wrap: wrap;
     h3{
-      width:10rem;
+      padding-right: 5px;
       color:#582391;
       font-size: 1rem;
       font-family: 'Fira sans'; 
@@ -222,7 +200,6 @@ button:hover{
     color: #582391;
     font-family: 'Fira sans'; 
     padding-right: 5px;
-    
   }
   p{
       max-width: 8rem;

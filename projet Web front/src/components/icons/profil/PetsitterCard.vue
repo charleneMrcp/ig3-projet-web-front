@@ -9,7 +9,7 @@
             <h1 class="prenom"><slot name="prenom"></slot></h1>
         </div>
         
-        <p class="age"> <slot name="age"> </slot> </p>
+        <p class="age"> <slot name="code_post"> </slot> </p>
         
     </div> 
    

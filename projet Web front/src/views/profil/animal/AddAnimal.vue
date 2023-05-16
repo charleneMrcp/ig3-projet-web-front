@@ -228,22 +228,6 @@ export default{
 
     align-items: center;
 }
-
-.contain {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.image{
-    width:7rem;
-    height: auto;
-    display:inline;
-    margin: auto;
-    padding-top: 1rem;
-}
 .entree{
     border-radius: 3px;
     background-color: rgb(235, 234, 234) ;
@@ -288,8 +272,5 @@ label{
     width:5rem;
     margin-right: 1rem;
 }
-.check{
-    margin-left: 0.5rem;  
-    color:grey;  
-}
+
 </style>

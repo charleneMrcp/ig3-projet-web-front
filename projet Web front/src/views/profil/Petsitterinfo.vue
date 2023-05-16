@@ -26,6 +26,13 @@
           <p>{{ user.code_post }}</p>
         </div>
 
+        <div class="boitee">
+          <h3>Age:</h3>
+          <p> {{  user.age }} ans</p>
+        
+        </div>
+
+
       </div>
       <div class="sitter">
         <div class="boitee">
@@ -197,7 +204,7 @@ export default {
     display: flex;
     flex-direction: row;
     h3{
-      width:10rem;
+      padding-right: 5px;
       color:#582391;
       font-size: 1rem;
       font-family: 'Fira sans'; 

@@ -33,6 +33,7 @@ const router = createRouter({
         {path:'pro', name:'pro',component: ()=> import('../views/pro/ProView.vue')},
         {path:'reservation',name: 'reservation',component: () => import('../views/profil/ReservationView.vue')},
         {path:'reservation/:id', name:'reserv-details', props: true, component:() => import('../views/profil/Reservationinfo.vue')},
+        {path:'reservation/:id', name:'reserv-details2', props: true, component:() => import('../views/pro/Reservationinfo2.vue')},
       ]
     }  
   ]

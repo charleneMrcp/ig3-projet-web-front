@@ -77,7 +77,9 @@ h1{
 .cartes{
     width:90%;
     margin:auto;
-    display:grid;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
     position:relative;
@@ -89,15 +91,5 @@ h1{
 .animal{
   text-decoration: none;
 }
-.cartes{
-  @media (min-width: 500px){
-    grid-template-columns: repeat(3, 1fr);
-  
-  }
-  @media (min-width: 760px){
-      grid-template-columns: repeat(4, 1fr);
-    
-  }
-  grid-template-columns: minmax(300px,1fr);
-}
+
 </style>

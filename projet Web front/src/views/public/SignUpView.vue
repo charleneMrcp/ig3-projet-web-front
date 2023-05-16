@@ -1,5 +1,5 @@
 <template>
-    <h1> This is the Sign Up page</h1>
+    <h1>Inscription</h1>
     <SignUpForm/>
 </template>
 
@@ -11,6 +11,13 @@ import SignUpForm from '../../components/public/SignUpForm.vue';
 
 </script>
 
-<style>
+<style scoped lang="scss">
+h1{
+    text-align: center;
+    color: #582391;
+    font-family: 'Fira sans';  
+    margin:2rem;
+    padding-bottom: 1rem;
+}
 
 </style>

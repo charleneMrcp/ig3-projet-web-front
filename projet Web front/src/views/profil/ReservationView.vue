@@ -77,9 +77,6 @@ h1{
     position:relative;
     
 }
-.animal{
-  text-decoration: none;
-}
 .cartes{
 
   grid-template-columns: 1fr;

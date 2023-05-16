@@ -3,13 +3,22 @@
 <div class="petsitter-vue">
   <h1> Choisis ton Petsitter !</h1>
 
+  <div class="search-bar">
+    <input type="text" v-model="searchQuery" placeholder="Rechercher un Petsitter...">
+    <select v-model="selectedCodePost">
+      <option value="">Tous les codes postaux</option>
+      <option v-for="code in uniqueCodePosts" :value="code">{{ code }}</option>
+    </select>
+  </div>
+
+
   <div class="cards">
-    <div v-for="(petsitter, index) in petsitters" :key="index">
+    <div v-for="(petsitter, index) in filteredPetsitters" :key="index">
     <router-link class="element" :to="{ name: 'petsitter-details', params: {id: petsitter.sitter_id } }">
         <PetsitterCard :sexe="petsitter?.sexe">
           <template #nom>{{ petsitter?.nom }} </template>
           <template #prenom>{{ petsitter?.prenom }}</template>
-          <template #age>{{ petsitter?.age }}</template>
+          <template #code_post>{{ petsitter?.code_post }}</template>
         </PetsitterCard>
     </router-link>
 </div> 
@@ -22,12 +31,14 @@
 <script setup>
 
 import PetsitterCard from '../../components/icons/profil/PetsitterCard.vue';
-import {onMounted, ref} from 'vue';
+import {onMounted, ref, computed} from 'vue';
 import axios from 'axios'
 axios.defaults.headers.common['Authorization']= 'Bearer '+ localStorage.getItem('token');
 
 
 const petsitters= ref([]);
+const searchQuery = ref('');
+const selectedCodePost = ref('');
 
 onMounted(async()=>{
     await axios.get('/petsitters/allpetsitters')
@@ -36,6 +47,23 @@ onMounted(async()=>{
             petsitters.value = response.data
         })
 })
+
+const filteredPetsitters = computed(() => {
+  return petsitters.value.filter((petsitter) => {
+    const fullName = petsitter.nom.toLowerCase() + ' ' + petsitter.prenom.toLowerCase();
+    const matchesSearchQuery = fullName.includes(searchQuery.value.toLowerCase());
+    const matchesCodePost = selectedCodePost.value ? petsitter.code_post === selectedCodePost.value : true;
+    return matchesSearchQuery && matchesCodePost;
+  });
+});
+
+const uniqueCodePosts = computed(() => {
+  const codePosts = new Set();
+  petsitters.value.forEach((petsitter) => {
+    codePosts.add(petsitter.code_post);
+  });
+  return Array.from(codePosts);
+});
 
 
 
@@ -55,7 +83,9 @@ h1{
 .cards{
   width:90%;
   margin:auto;
-  display:grid;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   position:relative;
@@ -70,16 +100,18 @@ h1{
   text-decoration: none;
 }
 
-.cards{
-  @media (min-width: 500px){
-    grid-template-columns: repeat(3, 1fr);
-  
-  }
-  @media (min-width: 760px){
-      grid-template-columns: repeat(4, 1fr);
-    
-  }
-  grid-template-columns: minmax(300px,1fr);
+
+.search-bar{
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  padding: 1rem;
+  input{
+    width: 50%;
+    padding: 1rem;
+      }
 }
+
+
 
 </style>

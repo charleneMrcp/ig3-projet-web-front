@@ -13,18 +13,20 @@
             </div>
            
             <div class="la">
-                <ReservationCard :validation="reservation?.validation">
-                    <template #sitter> {{  reservation?.sitter_id}}</template>
-                    <template #date_debut>{{reservation?.date_debut}}</template>
-                    <template #date_fin>{{reservation?.date_fin}}</template>
-                    <template #h_debut> {{reservation?.h_debut}}</template>
-                    <template #h_fin> {{reservation?.h_fin}}</template>
-                    <template #pet_id> {{reservation?.pet_id}}</template>
-                    <template #quick_desc>{{reservation?.quick_desc}}</template>
-                    <template #validation>{{reservation?.validation}}</template>
-                    
-                    
-                </ReservationCard>
+                <router-link class="reservation" :to="{ name: 'reserv-details2', params: {id: reservation.res_id } }">
+                    <ReservationCard :validation="reservation?.validation">
+                        <template #sitter_nom> {{  reservation?.nom}}</template>
+                        <template #date_debut>{{reservation?.date_debut}}</template>
+                        <template #date_fin>{{reservation?.date_fin}}</template>
+                        <template #h_debut> {{reservation?.h_debut}}</template>
+                        <template #h_fin> {{reservation?.h_fin}}</template>
+                        <template #nom_pet> {{reservation?.nom_pet}}</template>
+                        <template #quick_desc>{{reservation?.quick_desc}}</template>
+                        <template #validation>{{reservation?.validation}}</template>
+                        
+                        
+                    </ReservationCard>
+                </router-link>
             </div>
         </div>
         
@@ -130,9 +132,7 @@ button{
 button:hover{
     background-color: var(--primary) ;
 }
-.decallage{
-    margin-bottom: 1rem;
-}
+
 .bouttons{
     display: flex;
     flex-direction: column;
@@ -141,6 +141,11 @@ button:hover{
 }
 .la{
     flex:1;
+   
+    
+}
+.reservation{
+  text-decoration: none;
 }
 
 </style>

@@ -30,6 +30,7 @@
   
 <script setup>
 
+
 import PetsitterCard from '../../components/icons/profil/PetsitterCard.vue';
 import {onMounted, ref, computed} from 'vue';
 import axios from 'axios'

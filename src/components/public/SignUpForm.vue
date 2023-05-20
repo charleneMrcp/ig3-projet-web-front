@@ -167,7 +167,7 @@ export default{
             this.v$.$validate()
             if (!this.v$.$error){
                 
-                await axios.post("http://localhost:3000/user/inscription", this.state)
+                await axios.post("user/inscription", this.state)
                 .then(response => { 
             
                 //Problème pour

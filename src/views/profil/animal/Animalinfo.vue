@@ -234,7 +234,7 @@ button:hover{
   p{
     margin-top: 1rem;
     text-align: center;
-    width: 40rem;
+    width: 70%;
     font-family: 'Fira sans';
   }
 }

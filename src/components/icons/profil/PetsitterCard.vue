@@ -85,6 +85,14 @@ export default {
     font-family: 'Fira sans';
     
 }
-
+@media (max-width: 378px){
+    .petsitter-card{
+        width:10rem;
+    }
+    .name{
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 </style>

@@ -62,18 +62,18 @@
 
       <div class="boitee">
         <h3>Expérience:</h3>
-        <p>{{ sitter.exp_desc }}</p>
+        <p class="secur">{{ sitter.exp_desc }}</p>
       </div>
 
 
       <div class="boitee">
         <h3>Motivation:</h3>
-        <p>{{ sitter.motiv_desc }} </p>
+        <p class="secur">{{ sitter.motiv_desc }} </p>
       </div>
 
       <div class="boitee">
         <h3>Logement:</h3>
-        <p>{{ sitter.loge_desc }}</p>
+        <p class="secur">{{ sitter.loge_desc }}</p>
       </div>
     </div>
       
@@ -111,6 +111,7 @@ export default {
     
 
     onMounted(() => {
+      console.log(routeParams.id)
       axios.get(`/petsitters/getpetsitter/${routeParams.id}`)
       .then((response) => {
         sitter.value = response.data
@@ -214,6 +215,14 @@ export default {
       color: grey;
       font-family: 'Fira sans'; 
       font-size: 1rem;
+      overflow: auto;
+    }
+    @media (min-width: 482px){
+
+      p{
+      max-width: 25rem;
+      overflow: auto;
+      }
     }
     
     
@@ -239,9 +248,10 @@ export default {
     margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: center;
-    width: 40rem;
     font-family: 'Fira sans';
+    word-wrap: break-word;
   }
+  
 }
 
 

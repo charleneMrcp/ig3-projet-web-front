@@ -34,7 +34,17 @@ const router = createRouter({
         {path:'reservation',name: 'reservation',component: () => import('../views/profil/ReservationView.vue')},
         {path:'reservation/:id', name:'reserv-details', props: true, component:() => import('../views/profil/Reservationinfo.vue')},
         {path:'reservation/:id', name:'reserv-details2', props: true, component:() => import('../views/pro/Reservationinfo2.vue')},
+        {
+          path: '/:catchAll(.*)',
+          name: 'NotFound',
+          component: () => import('../views/NotFound.vue')
+        }
       ]
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'NotFound',
+      component: () => import('../views/NotFound.vue')
     }  
   ]
 })

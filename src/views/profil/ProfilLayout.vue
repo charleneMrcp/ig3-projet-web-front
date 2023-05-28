@@ -31,7 +31,7 @@ export default{
 <style lang="scss">
 .user{
     display: flex;
-    border: solid 1px black ; 
+    
 }
 
 .main{
@@ -39,7 +39,7 @@ export default{
     padding:2rem;
 
     @media (max-width: 768px){
-      padding-left: 6rem;
+      padding-left: 4rem;
     }
 
 

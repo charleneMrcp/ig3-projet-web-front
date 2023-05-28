@@ -70,6 +70,7 @@ h1{
 }
 .cartes{
     width:90%;
+    
     margin:auto;
     display:grid;
     justify-content: center;

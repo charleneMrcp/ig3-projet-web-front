@@ -92,17 +92,7 @@ export default{
     margin: auto;
     justify-content: center;
     display: flex;
-    .nom{
-        padding-right: 5px;
-        font-size: 1.5rem;
-        color: #582391;
-        font-family: 'Fira sans'; 
-    }
-    .prenom{
-        font-size:1.5rem;
-        color: #582391;
-        font-family: 'Fira sans'; 
-    }
+    
     p{
         padding-left: 5px;
     }

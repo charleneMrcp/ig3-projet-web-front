@@ -70,5 +70,10 @@ export default {
     font-family: 'Fira sans';
     color:#582391;
 }
-
+@media (max-width: 378px){
+    .animal-card{
+        width:10rem;
+    }
+    
+}
 </style>

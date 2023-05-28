@@ -115,6 +115,9 @@ export default {
   flex-direction: column;
 }
 .global{
+  @media (max-width:400px) {
+    width: 80%
+  }
   width: 60%;
   margin: auto;
   background-color: rgb(235, 234, 234);

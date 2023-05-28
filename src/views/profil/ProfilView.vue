@@ -9,85 +9,99 @@
         <div class="modif">
             <form @submit.prevent="update">
                 <div class="entree">
-
                     <div class="gauche">
 
                         <div class="boite">
-                            <label for="Identite"> Identité </label>
-                            <input type="radio" id="one" value="Homme" v-model="state.sexe" />
-                            <label for="one">Homme</label>
-
-                            <input type="radio" id="two" value="Femme" v-model="state.sexe" />
-                            <label for="two">Femme</label>
-
-                            <span v-if="v$.sexe.$error">
-                                {{ v$.sexe.$errors[0].$message }}
-                            </span>
-                        </div>
-                        <div class="boite">
-                            <label for="Nom"> Nom </label>
-                            <input type="text" :placeholder="user.nom" v-model="state.nom">
-                            <span v-if="v$.nom.$error">
-                                {{ v$.nom.$errors[0].$message }}
-                            </span>
-                        </div>
-
-                        <div class="boite">
-                            <label for="Prenom"> Prenom </label>
-                            <input type="text" :placeholder="user.prenom" v-model="state.prenom">
-                            <span v-if="v$.prenom.$error">
-                                {{ v$.prenom.$errors[0].$message }}
-                            </span>
-                        </div>
-                        <div class="boite">
-                            <label for="Age"> Age </label>
-                            <input type="text" :placeholder="user.age" v-model="state.age">
-                            <span v-if="v$.age.$error">
-                                {{ v$.age.$errors[0].$message }}
-                            </span>
-                        </div>
+                        <label for="Identite"> Identité </label>
+                        <input type="radio" id="one" value="Homme" v-model="state.sexe" />
+                        <label for="one">Homme</label>
+                        <input type="radio" id="two" value="Femme" v-model="state.sexe" />
+                        <label for="two">Femme</label>
                         
+                        <span class="error" v-if="v$.sexe.$error">
+                            {{ v$.sexe.$errors[0].$message }}
+                        </span>
+                    </div>
+                    <div class="boite">
+                        <label for="Nom"> Nom </label>
+                        <div class="input-wrapper">
+                            <input type="text" :placeholder="user.nom" v-model="state.nom">
+                            <span class="error" v-if="v$.nom.$error">
+                            {{ v$.nom.$errors[0].$message }}
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="droite">
-                        <div class="boite">
-                            <label for="Telephone"> Telephone </label>
-                            <input type="tel" :placeholder="user.tel" v-model="state.tel">
-                            <span v-if="v$.tel.$error">
-                                {{ v$.tel.$errors[0].$message }}
-                            </span>
-
-                        </div>
-                        <div class="boite">
-                            <label for="Logement"> Logement </label>
-
-                            <input class="check" type="radio" id="three" value="Appartement" v-model="state.logement" />
-                            <label for="three">Appartement</label>
-
-                            <input class="check" type="radio" id="four" value="Maison" v-model="state.logement" />
-                            <label for="four">Maison</label>
-
-                        </div>
-                        <div class="boite">
-                            <label for="Adresse"> Adresse </label>
-                            <input type="text" :placeholder="user.addr" v-model="state.addr">
-                            <span v-if="v$.addr.$error">
-                                {{ v$.addr.$errors[0].$message }}
+                    <div class="boite">
+                        <label for="Prenom"> Prenom </label>
+                        <div class="input-wrapper">
+                            <input type="text" :placeholder="user.prenom" v-model="state.prenom">
+                            <span class="error" v-if="v$.prenom.$error">
+                            {{ v$.prenom.$errors[0].$message }}
                             </span>
                         </div>
-                        <div class="boite">
-                            <label for="code_post"> Code postal </label>
-                            <input type="text" :placeholder="user.code_post" v-model="state.code_post">
-                            <span v-if="v$.code_post.$error">
-                                {{ v$.code_post.$errors[0].$message }}
+                    </div>
+                    <div class="boite">
+                        <label for="Age"> Age </label>
+                        <div class="input-wrapper">
+                            <input type="text" :placeholder="user.age" v-model="state.age">
+                            <span class="error" v-if="v$.age.$error">
+                            {{ v$.age.$errors[0].$message }}
                             </span>
                         </div>
                     </div>
                 </div>
-                <button type="submit"> Enregistrer les modifications  </button>
 
-            </form>
-        </div>
+                <div class="droite">
+                    <div class="boite">
+                        <label for="Telephone"> Telephone </label>
+                        <div class="input-wrapper">
+                            <input type="tel" :placeholder="user.tel" v-model="state.tel">
+                            <span class="error" v-if="v$.tel.$error">
+                            {{ v$.tel.$errors[0].$message }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="boite">
+                        <label for="Logement"> Logement </label>
+                    
+                        <input class="check" type="radio" id="three" value="Appartement" v-model="state.logement" />
+                        <label for="three">Appartement</label>
+
+                        <input class="check" type="radio" id="four" value="Maison" v-model="state.logement" />
+                        <label for="four">Maison</label>
+                    
+                    </div>
+                    <div class="boite">
+                        <label for="Adresse"> Adresse </label>
+                        <div class="input-wrapper">
+                            <input type="text" :placeholder="user.addr" v-model="state.addr">
+                            <span class="error" v-if="v$.addr.$error">
+                            {{ v$.addr.$errors[0].$message }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="boite">
+                        <label for="code_post"> Code postal </label>
+                        <div class="input-wrapper">
+                            <input type="text" :placeholder="user.code_post" v-model="state.code_post">
+                            <span class="error" v-if="v$.code_post.$error">
+                            {{ v$.code_post.$errors[0].$message }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit"> Enregistrer les modifications  </button>
+            <div class="success-message" v-if="success">
+                    Modification réussie !
+            </div>
+            <div class="error" v-if="error">
+                    Echec de la modification !
+            </div>
+        </form>
+    </div>
+
     </div>
 </template>
 
@@ -101,6 +115,8 @@ import axios from 'axios'
 import router from '../../router'
 axios.defaults.headers.common['Authorization']= 'Bearer '+ localStorage.getItem('token');
 
+const success= ref(false)
+const error =ref(false)
 export default {
    setup() {         
     const state = reactive({
@@ -154,7 +170,7 @@ export default {
     })
 
     return {
-      user, state, v$, getUser    
+      user, state, v$, getUser, success , error
     }
   },
 
@@ -166,13 +182,15 @@ export default {
                 
                 await axios.put("/user/modification", this.state)
                 .then(async(response) => { 
-                    alert('User Updated successfully !') ;
+                    success.value = true
+                    error.value =false
                     await this.getUser()
                 })
                 .catch(error => { console.error(error)});
             }
             else{
-                alert('Update failed')
+                error.value = true
+                success.value =false
             }
             
         },
@@ -190,6 +208,7 @@ export default {
     flex-direction: row;
     
 }
+
 .gauche {
     align-items: center;
 }
@@ -261,6 +280,26 @@ label{
 .check{
     margin-left: 0.5rem;    
 }
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.input-wrapper .error {
+  
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+  text-align: left;
+}
+.error{
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+}
 
-
+.success-message{
+  color: green;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+}
 </style>

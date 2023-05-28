@@ -90,7 +90,7 @@ h1{
   justify-content: center;
   gap: 2rem;
   position:relative;
-  background-image: url('../../images/pattes.jpg');
+  background-image: url('../../images/pattes.webp');
   background-position: center;
   background-repeat:repeat ;
   background-size: cover;
@@ -104,6 +104,8 @@ h1{
 
 .search-bar{
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 2rem;
   padding: 1rem;

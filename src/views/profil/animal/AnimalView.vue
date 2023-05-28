@@ -55,6 +55,13 @@ onMounted(()=>{
 <style scoped lang="scss">
 .new{
     margin-bottom: 1rem;
+
+}
+@media (max-width:772px){
+    .new{
+        justify-content: center;
+        text-align: center;
+    }
 }
 .material-icons{
     text-decoration: none;
@@ -83,7 +90,7 @@ h1{
     justify-content: center;
     gap: 2rem;
     position:relative;
-    background-image: url('../../../images/pattes.jpg');
+    background-image: url('../../../images/pattes.webp');
     background-position: center;
     background-repeat:repeat ;
     background-size: cover;

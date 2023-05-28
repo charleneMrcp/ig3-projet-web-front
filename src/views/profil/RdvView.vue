@@ -9,79 +9,94 @@
                 <div class="gauche">
                     <div class="boite">
                         <label for="date_debut"> Date de début </label>
-                        <input type="date" v-model="state.date_debut">
-
-                        <span v-if="v$.date_debut.$error">
+                            <div class="input-wrapper">
+                            <input type="date" v-model="state.date_debut">
+                            <span class="error" v-if="v$.date_debut.$error">
                             {{ v$.date_debut.$errors[0].$message }}
-                        </span>   
-                        
+                            </span>
+                        </div>
                     </div>
+
                     <div class="boite">
                         <label for="date_fin"> Date de fin </label>
-                        <input type="date" v-model="state.date_fin">
-
-                        <span v-if="v$.date_fin.$error">
+                        <div class="input-wrapper">
+                            <input type="date" v-model="state.date_fin">
+                            <span class="error" v-if="v$.date_fin.$error">
                             {{ v$.date_fin.$errors[0].$message }}
-                        </span>   
-                        
+                            </span>
+                        </div>
                     </div>
+
                     <div class="boite">
                         <label for="h_debut"> Heure de début </label>
-                        <input type="time" v-model="state.h_debut">
-
-                        <span v-if="v$.h_debut.$error">
+                        <div class="input-wrapper">
+                            <input type="time" v-model="state.h_debut">
+                            <span class="error" v-if="v$.h_debut.$error">
                             {{ v$.h_debut.$errors[0].$message }}
-                        </span>   
-                        
+                            </span>
+                        </div>
                     </div>
 
                     <div class="boite">
                         <label for="h_fin"> Heure de fin </label>
-                        <input type="time" v-model="state.h_fin">
-
-                        <span v-if="v$.h_fin.$error">
+                        <div class="input-wrapper">
+                            <input type="time" v-model="state.h_fin">
+                            <span class="error" v-if="v$.h_fin.$error">
                             {{ v$.h_fin.$errors[0].$message }}
-                        </span>   
-                        
+                            </span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="droite">
                     <div class="boite">
                         <label for="acti-select">Choisis une activite:</label>
-
-                        <select name="activites" id="acti-select" v-model="state.libelle_acti">
+                        <div class="input-wrapper">
+                            <select name="activites" id="acti-select" v-model="state.libelle_acti">
                             <option value="">--Merci de choisir une option--</option>
                             <option v-for="(activite, index) in activites" :key="index" :value="activite.libelle_acti">{{ activite.libelle_acti }}</option>
-                        </select>
-                        <span v-if="v$.libelle_acti.$error">
+                            </select>
+                            <span class="error" v-if="v$.libelle_acti.$error">
                             {{ v$.libelle_acti.$errors[0].$message }}
-                        </span>
+                            </span>
+                        </div>
                     </div>
+
                     <div class="boite">
                         <label for="pet-select">Pour quel animal:</label>
-
-                        <select name="animal" id="pet-select" v-model="state.pet_id">
+                        <div class="input-wrapper">
+                            <select name="animal" id="pet-select" v-model="state.pet_id">
                             <option value="">--Merci de choisir une option--</option>
                             <option v-for="(animal, index) in animaux" :key="index" :value="animal.pet_id">{{ animal.nom_pet }}</option>
-                        </select>
-                        <span v-if="v$.pet_id.$error">
+                            </select>
+                            <span class="error" v-if="v$.pet_id.$error">
                             {{ v$.pet_id.$errors[0].$message }}
-                        </span>
+                            </span>
+                        </div>
                     </div>
+
                     <div class="boite">
                         <label for="quick_desc"> Donnez une description de votre demande </label>
-                        <textarea v-model="state.quick_desc"></textarea>
-
-                        <span v-if="v$.quick_desc.$error">
+                        <div class="input-wrapper">
+                            <textarea v-model="state.quick_desc"></textarea>
+                            <span class="error" v-if="v$.quick_desc.$error">
                             {{ v$.quick_desc.$errors[0].$message }}
-                        </span>   
-                        
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
             <button type="submit"> Valider </button>
+            <div class="success-message" v-if="success">
+                Demande de réservation réussie ! En attente de la validation du petsitter.
+            </div>
+            <div class="error" v-if="error">
+                Echec lors de la prise de rendez-vous !
+            </div>
         </form>
     </div>
+
+
 </template>
 
 <script>
@@ -95,6 +110,8 @@ import axios from 'axios'
 import router from '../../router'
 axios.defaults.headers.common['Authorization']= 'Bearer '+ localStorage.getItem('token');
 
+const error= ref(false)
+const success = ref(false)
 export default {
     setup(){ 
         const route= useRoute()        
@@ -150,7 +167,7 @@ export default {
         
 
         return {
-            state, v$ , activites, animaux 
+            state, v$ , activites, animaux, error, success
         }
     },
     methods:{
@@ -159,12 +176,14 @@ export default {
         if (!this.v$.$error){
             await axios.post("/reservations/newReservation", this.state)
             .then((response) => {
-                alert(response.data.message)                       
+                success.value = true
+                error.value =false                       
             })
             .catch(err => console.log(err))
         }
         else{
-            console.log('fail')
+            success.value = false
+            error.value = true      
         }
     }
     }
@@ -180,6 +199,14 @@ export default {
     width: auto;
     display: flex;
     flex-direction: row;
+
+    
+}
+@media (max-width:530px) {
+    .boite{
+        flex-direction: column;
+        
+    }
     
 }
 .gauche {
@@ -199,13 +226,7 @@ export default {
 }
 
 
-.image{
-    width:7rem;
-    height: auto;
-    display:inline;
-    margin: auto;
-    padding-top: 1rem;
-}
+
 .entree{
     border-radius: 3px;
     background-color: rgb(235, 234, 234) ;
@@ -250,9 +271,35 @@ label{
     width:8rem;
     margin-right: 1rem;
 }
-.check{
-    margin-left: 0.5rem;    
+
+select{
+    background-color: var(--light);
+    color:grey;
+    font-family: 'Fira sans';
 }
+.error{
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+}
+
+.success-message{
+  color: green;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.input-wrapper .error {
+  
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+  text-align: left;
+}
+
 
 
 </style>

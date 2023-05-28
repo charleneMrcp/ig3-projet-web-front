@@ -10,145 +10,156 @@
                 <div class="entree">
                     <div class="gauche">
                         <div class="boite">
-                            <label for="Nom"> Nom </label>
+                        <label for="Nom"> Nom </label>
+                        <div class="input-wrapper">
                             <input type="text" placeholder="Nom" v-model="state.nom_pet">
-                            <span v-if="v$.nom_pet.$error">
-                                {{ v$.nom_pet.$errors[0].$message }}
+                            <span class="error" v-if="v$.nom_pet.$error">
+                            {{ v$.nom_pet.$errors[0].$message }}
                             </span>
+                        </div>
                         </div>
 
                         <div class="boite">
-                            <label for="Type"> Type d'animal </label>
-
+                        <label for="Type"> Type d'animal </label>
+                        <div class="input-wrapper">
                             <input class="check" type="radio" id="five" value="Chien" v-model="state.type" />
                             <label for="five">Chien</label>
 
                             <input class="check" type="radio" id="six" value="Chat" v-model="state.type" />
-                            <label for="six">Chat</label>            
+                            <label for="six">Chat</label>
+                        </div>
                         </div>
 
                         <div class="boite">
-
-                            <label for="Type"> Sexe </label>
+                        <label for="Type"> Sexe </label>
+                        <div class="input-wrapper">
                             <input class="check" type="radio" id="seven" value="Mâle" v-model="state.sexe" />
                             <label for="seven">Mâle</label>
 
                             <input class="check" type="radio" id="eigth" value="Femelle" v-model="state.sexe" />
                             <label for="eigth">Femelle</label>
-
-                            <span v-if="v$.sexe.$error">
+                        </div>
+                        <span class="error" v-if="v$.sexe.$error">
                             {{ v$.sexe.$errors[0].$message }}
-                            </span>
+                        </span>
                         </div>
 
                         <div class="boite">
-                            <label for="Age"> Age </label>
+                        <label for="Age"> Age </label>
+                        <div class="input-wrapper">
                             <input type="text" placeholder="Age" v-model="state.age">
-                            <span v-if="v$.age.$error">
+                            <span class="error" v-if="v$.age.$error">
                             {{ v$.age.$errors[0].$message }}
                             </span>
-
+                        </div>
                         </div>
                         <div class="boite">
-                            <label for="Taille"> Taille </label>
+                        <label for="Taille"> Taille </label>
+                        <div class="input-wrapper">
                             <input type="text" placeholder="Taille" v-model="state.taille">
-                            <span v-if="v$.taille.$error">
+                            <span class="error" v-if="v$.taille.$error">
                             {{ v$.taille.$errors[0].$message }}
                             </span>
                         </div>
+                        </div>
                         <div class="boite">
-                            <label for="Poids"> Poids </label>
+                        <label for="Poids"> Poids </label>
+                        <div class="input-wrapper">
                             <input type="text" placeholder="Poids" v-model="state.poids">
-                            <span v-if="v$.poids.$error">
+                            <span class="error" v-if="v$.poids.$error">
                             {{ v$.poids.$errors[0].$message }}
                             </span>
+                        </div>
                         </div>
                     </div>
 
                     <div class="droite">
                         <div class="boite">
-                            <label for="Race"> Race </label>
+                        <label for="Race"> Race </label>
+                        <div class="input-wrapper">
                             <input type="text" placeholder="Race" v-model="state.race">
-                            <span v-if="v$.race.$error">
+                            <span class="error" v-if="v$.race.$error">
                             {{ v$.race.$errors[0].$message }}
                             </span>
                         </div>
+                        </div>
 
-                        
                         <div class="boite">
-                            <label for="vs_dog"> vs_dog </label>
-
+                        <label for="vs_dog"> vs_dog </label>
+                        <div class="input-wrapper">
                             <input class="check" type="radio" id="nine" value="true" v-model="state.vs_dog" />
                             <label for="nine">OK</label>
 
                             <input class="check" type="radio" id="ten" value="false" v-model="state.vs_dog" />
                             <label for="ten">Not OK</label>
-
-                            
+                        </div>
                         </div>
                         <div class="boite">
-                            <label for="vs_cat"> vs_cat </label>
-
+                        <label for="vs_cat"> vs_cat </label>
+                        <div class="input-wrapper">
                             <input class="check" type="radio" id="eleven" value="true" v-model="state.vs_cat" />
                             <label for="eleven">OK</label>
 
                             <input class="check" type="radio" id="twelve" value="false" v-model="state.vs_cat" />
                             <label for="twelve">Not OK</label>
-
-                            
+                        </div>
                         </div>
                         <div class="boite">
-                            <label for="vs_humain"> vs_humain </label>
-
+                        <label for="vs_humain"> vs_humain </label>
+                        <div class="input-wrapper">
                             <input class="check" type="radio" id="a" value="true" v-model="state.vs_humain" />
                             <label for="a">OK</label>
 
                             <input class="check" type="radio" id="b" value="false" v-model="state.vs_humain" />
                             <label for="b">Not OK</label>
-
-                            
+                        </div>
                         </div>
                         <div class="boite">
-                            <label for="vs_enfants"> vs_enfants </label>
-
+                        <label for="vs_enfants"> vs_enfants </label>
+                        <div class="input-wrapper">
                             <input class="check" type="radio" id="c" value="true" v-model="state.vs_enfants" />
                             <label for="c">OK</label>
 
                             <input class="check" type="radio" id="d" value="false" v-model="state.vs_enfants" />
                             <label for="d">Not OK</label>
-
-                            
+                        </div>
                         </div>
 
                         <div class="boite">
-                            <label for="desc_gene"> Description generale </label>
+                        <label for="desc_gene"> Description generale </label>
+                        <div class="input-wrapper">
                             <textarea class="check" placeholder="desc" v-model="state.desc_gene"></textarea>
-
-                            <span v-if="v$.desc_gene.$error">
+                            <span class="error" v-if="v$.desc_gene.$error">
                             {{ v$.desc_gene.$errors[0].$message }}
                             </span>
                         </div>
-
+                        </div>
                     </div>
                 </div>
                 <button type="submit"> Modifier </button>
+                <div class="success-message" v-if="success">
+                    Modification réussie !
+                </div>
+                <div class="error" v-if="error">
+                    Echec de la modification
+                </div>
+                
             </form>
         </div>
-        
     </div>
-    
 </template>
 
 <script>
 
 import { reactive, onMounted, ref , computed} from 'vue'
 import useValidate from '@vuelidate/core'
-import { required} from '@vuelidate/validators'
+import { required, alpha, numeric} from '@vuelidate/validators'
 import { useRoute } from 'vue-router'
 import axios from 'axios'
 
 axios.defaults.headers.common['Authorization']= 'Bearer '+ localStorage.getItem('token');
-
+const success=ref(false)
+const error=ref(false)
 export default {
    setup() {   
     const route = useRoute()
@@ -170,12 +181,12 @@ export default {
     const rules = computed(()=> {   
             return {
                 nom_pet: {required},
-                age: {required},
+                age: {required, numeric},
                 type: {required},
                 sexe: {required},
-                taille:  {required},
-                poids:  {required},
-                race:  {required},
+                taille:  {required, numeric},
+                poids:  {required, numeric},
+                race:  {required, alpha},
                 vs_dog:  {required},
                 vs_cat:  {required},
                 vs_humain: {required},
@@ -214,24 +225,26 @@ export default {
     })
 
     return {
-      animal, state, v$, getAnimal, id    
+      animal, state, v$, getAnimal, id, error,success   
     }
   },
   methods:{
         async update(){
             this.v$.$validate()
             if (!this.v$.$error){
-                console.log('allez')
+                
                 console.log(this.state)
                 await axios.put(`/animals/modifAnimal/${this.id}`, this.state)
                 .then(async(response) => { 
-                    alert('Animal Updated successfully !') ;
+                    success.value =true
+                    error.value = false
                     await this.getAnimal()
                 })
                 .catch(error => { console.error(error)});
             }
             else{
-                alert('Update failed')
+                success.value =false
+                error.value = true
             }
             
         },
@@ -265,7 +278,17 @@ export default {
   align-items: center;
 }
 
+.error{
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+}
 
+.success-message{
+  color: green;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+}
 .image{
     width:7rem;
     height: auto;

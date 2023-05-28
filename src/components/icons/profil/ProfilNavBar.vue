@@ -2,7 +2,7 @@
 
     <aside :class="`${is_expanded && 'is_expanded'}`">
       <div class="logo">
-        <img src="../../../assets/logo.svg" alt="vue">
+        <img src="../../../images/logo22.png" alt="vue">
       </div>
 
       <div class="menu-toggle-wrap">

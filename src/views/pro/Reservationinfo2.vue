@@ -40,9 +40,93 @@
           </div>
           <div class="desc">
             <h3>Description:</h3>
-            <p>{{reservation.quick_desc}} </p>
+            <p class="descr">{{reservation.quick_desc}} </p>
           </div>
         </div>
+        <div class="user">
+          <h2>Utilisateur</h2>
+          <div class="boites">
+
+            <div class="boite">
+                  <h3>Nom:</h3>
+                  <p>{{reservation.nom}} </p>
+            </div>
+            <div class="boite">
+                  <h3>Prenom:</h3>
+                  <p>{{reservation.prenom}} </p>
+            </div>
+            <div class="boite">
+                  <h3>Tel:</h3>
+                  <p>{{reservation.tel}} </p>
+            </div>
+          </div> 
+
+        </div>
+        <div class="animal">
+          <h2> Animal </h2>
+          <div class="informations">
+            <div class="gauche">
+
+              <div class="boite">
+                    <h3>Nom:</h3>
+                    <p>{{reservation.nom_pet}} </p>
+              </div>
+              <div class="boite">
+                    <h3>Type:</h3>
+                    <p>{{reservation.type}} </p>
+              </div>
+              <div class="boite">
+                    <h3>Sexe:</h3>
+                    <p>{{reservation.sexe}} </p>
+              </div>
+              <div class="boite">
+                    <h3>Taille:</h3>
+                    <p >{{reservation.taille}} cm </p>
+              </div>
+              <div class="boite">
+                    <h3>Age:</h3>
+                    <p>{{reservation.age}} ans </p>
+              </div>
+              
+            </div>
+            
+            <div class="droite">
+              <div class="boite">
+                    <h3>Poids:</h3>
+                    <p>{{reservation.poids}} kg </p>
+              </div>
+              <div class="boite">
+                <h3>Réactivité humains:</h3>
+                <p>{{reservation.vs_humain}}</p>
+              </div>
+              <div class="boite">
+                    <h3>Réactivité enfants:</h3>
+                    <p>{{reservation.vs_enfants}}</p>
+              </div>
+              <div class="boite">
+                <h3>Réactivité chiens:</h3>
+                <p>{{reservation.vs_dog}}</p>
+              </div>
+              <div class="boite">
+                    <h3>Réactivité chats:</h3>
+                    <p>{{reservation.vs_cat}}</p>
+              </div>
+                
+            </div>
+          </div>
+          <div class="boite">
+                  <h3>Race:</h3>
+                  <p>{{reservation.race}} </p>
+            </div>
+          <div class="boite">
+                <h3 class="coco">Description:</h3>
+                <p class="descr">{{reservation.desc_gene}} </p>
+          </div>
+          
+
+        </div>
+
+        
         
     </div>
 </template>
@@ -70,6 +154,7 @@ export default {
       axios.get(`/reservations/getReservation/${routeParams.id}`)
       .then((response) => {
         reservation.value = response.data
+        console.log(response.data)
         })
     })
 
@@ -88,9 +173,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.identite{
-  display: flex;
-  flex-direction: column;
+.coco{
+  text-align:center
 }
 .global{
   width: 60%;
@@ -99,6 +183,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 796px){
+    width:80%;
+  }
 }
 .boite{
     margin:0.5rem;
@@ -117,30 +204,17 @@ export default {
       font-family: 'Fira sans'; 
       font-size: 1rem;
     }
-    
-    
-}
-.boitea{
-    margin:0.5rem;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    h3{
-      padding-right: 5px;
-      color:#582391;
-      font-size: 1rem;
-      font-family: 'Fira sans'; 
-    }
-    p{
-      max-width: 8rem;
-      color: grey;
-      font-family: 'Fira sans'; 
-      font-size: 1rem;
+    @media (min-width: 482px){
+
+      p.descr{
+      max-width: 25rem;
+      overflow: auto;
+      }
     }
     
     
 }
+
 h1{
     text-align: center;
     color: #582391;
@@ -163,7 +237,8 @@ button:hover{
     background-color: mediumpurple ;
 }
 .informations{
-  margin:2rem;
+  overflow:auto;
+  margin:1rem;
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -215,9 +290,7 @@ button:hover{
   align-items: center;
   flex-direction: column;
 }
-.sep{
-  height: 1rem;
-}
+
 .reserv-image{
   margin-top:1rem;
   border: 3px dotted grey;
@@ -225,5 +298,68 @@ button:hover{
   width: 13rem;
   display: flex;
   justify-content: center;
+}
+.animal{
+  overflow:auto;
+  @media (max-width: 796px){
+    width:80%;
+  }
+  margin-top: 10px;
+  margin-bottom: 10px;
+  h2{
+    color: #582391;
+    font-family: 'Fira sans';
+  }
+  background-color: rgb(235, 234, 234);
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  
+  
+}
+p.descr{
+  
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: 'Fira sans';
+  word-wrap: break-word;
+  font-size: 1rem;
+  
+  
+}
+.user{
+  @media (max-width: 796px){
+    width:80%;
+  }
+  background-color: lightblue;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  h2{
+    color: #582391;
+    font-family: 'Fira sans';
+  }
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  
+  display: flex;
+  flex-direction:column;
+
+  align-items: center;
+  .boites{
+    width:100%;
+    flex-direction: row;
+    flex-wrap:wrap;
+    display:flex;
+    justify-content:space-between;
+  }
 }
 </style>

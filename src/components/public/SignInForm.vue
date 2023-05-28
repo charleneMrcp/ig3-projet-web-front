@@ -78,7 +78,7 @@ export default{
                     const form = document.querySelector('form');
                     form.reset();
                     router.push('/signIn/recherche')
-                    if(response.status != 200){
+                    if(response.status != 201){
                         success.value = true
                     }
                 })

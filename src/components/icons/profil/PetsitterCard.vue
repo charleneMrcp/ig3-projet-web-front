@@ -39,12 +39,12 @@ export default {
     .nom{
         color:#582391;
         padding-right: 5px;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-family: 'Fira sans';
     }
     .prenom{
         color:#582391;
-        font-size:1.5rem;
+        font-size:1rem;
         font-family: 'Fira sans';
     }
 }
@@ -87,7 +87,7 @@ export default {
 }
 @media (max-width: 378px){
     .petsitter-card{
-        width:10rem;
+        width:11rem;
     }
     .name{
         display: flex;

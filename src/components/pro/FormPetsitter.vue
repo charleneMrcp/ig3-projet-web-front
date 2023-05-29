@@ -99,7 +99,7 @@ export default{
             if (!this.v$.$error){
                 await axios.post('/petsitters/newPetsitter', this.element)
                 .then((response)=>{
-                    alert('You are now a pro ! Find your reservations on the next page')
+                    alert('Tu es maintenant un professionnel, tu trouveras tes réservations sur la prochaine page.')
                     location.reload()
                 })
             }

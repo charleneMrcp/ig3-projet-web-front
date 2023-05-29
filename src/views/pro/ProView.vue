@@ -51,7 +51,7 @@ export default{
             async supprimer(){
                 await axios.delete('/petsitters/deletePetsitter')
                 .then((response)=>{
-                    alert('you deleted your pro account')
+                    alert('Votre compte pro a été supprimé !')
                     location.reload()
                 })
             }

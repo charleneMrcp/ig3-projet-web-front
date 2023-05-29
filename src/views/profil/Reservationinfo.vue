@@ -1,5 +1,5 @@
 <template>
-    <h1> Details de la réservation </h1>
+    <h1> Détails de la réservation </h1>
     <div class="infos">
         <div class="global">
 

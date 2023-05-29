@@ -11,7 +11,7 @@
             <div class="identite">
               <div class="boitea">
                 <h3>Nom petsitter:</h3>
-                <p>{{reservation.nom}}</p>
+                <p>{{reservation.nomP}}</p>
               </div>
               <div class="boitea">
                 <h3>Animal concerné:</h3>

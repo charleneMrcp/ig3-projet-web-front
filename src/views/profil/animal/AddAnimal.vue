@@ -186,7 +186,7 @@ export default{
                 sexe: {required},
                 taille:  {required, numeric},
                 poids:  {required, numeric},
-                race:  {required, alpha},
+                race:  {required},
                 vs_dog:  {required},
                 vs_cat:  {required},
                 vs_humain: {required},

@@ -49,15 +49,15 @@
 
             <div class="boite">
                   <h3>Nom:</h3>
-                  <p>{{reservation.nom}} </p>
+                  <p>{{reservation.nomU}} </p>
             </div>
             <div class="boite">
                   <h3>Prenom:</h3>
-                  <p>{{reservation.prenom}} </p>
+                  <p>{{reservation.prenomU}} </p>
             </div>
             <div class="boite">
                   <h3>Tel:</h3>
-                  <p>{{reservation.tel}} </p>
+                  <p>{{reservation.telU}} </p>
             </div>
           </div> 
 

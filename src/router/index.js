@@ -9,7 +9,7 @@ const router = createRouter({
       name: 'PublicLayout',
       component:() => import('../views/public/PublicLayout.vue'),
       children:[ 
-        {path: '/',name: 'home',component: ()=> import("../views/public/HomeView.vue")},  
+        {path: '/',name: 'home',component: ()=> import("../views/public/HomeView2.vue")},  
         {path:'signUp',name: 'signUp',component: () => import('../views/public/SignUpView.vue')},
         {path:'signIn',name: 'signIn',component: () => import('../views/public/SignInView.vue')},
       ]

@@ -3,9 +3,9 @@
 
       <ul class="menu-indicator">
 
-       <li class="menu-items"><RouterLink  class="menu-link"  to="/">Home</RouterLink> </li> 
-       <li class="menu-items"><RouterLink  class="menu-link" to="/signUp">Sign Up</RouterLink> </li> 
-       <li class="menu-items"> <RouterLink class="menu-link"  to="/signIn">Sign In</RouterLink></li> 
+       <li class="menu-items"><RouterLink  class="menu-link"  to="/">Accueil</RouterLink> </li> 
+       <li class="menu-items"><RouterLink  class="menu-link" to="/signUp">Inscription</RouterLink> </li> 
+       <li class="menu-items"> <RouterLink class="menu-link"  to="/signIn">Connexion</RouterLink></li> 
     
       </ul>
 

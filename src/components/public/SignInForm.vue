@@ -24,8 +24,11 @@
             <div class="boite boutton">
                 <button type="submit"> Valider </button>
             </div>
-            <div class="error-message" v-if="success">
+            <div class="error-message" v-if="error">
                 Echec de la connection !
+            </div>
+            <div class="success-message" v-if="success">
+                Connection réussie !
             </div>
         </form>
     </div>
@@ -41,6 +44,7 @@ import { useRouter } from 'vue-router'
 import router from '../../router';
 
 const success = ref(false); 
+const error= ref(false)
 export default{
     
     setup(){
@@ -62,7 +66,7 @@ export default{
         return {
             state,
             v$,
-            success,
+            error,
             
         }
     },
@@ -77,9 +81,12 @@ export default{
                     // Réinitialiser le formulaire
                     const form = document.querySelector('form');
                     form.reset();
+                    success.value = true
+                    error.value = false
                     router.push('/signIn/recherche')
                     if(response.status != 201){
-                        success.value = true
+                        error.value = true
+                        success.value = false
                     }
                 })
                 .catch(error => { console.error(error); });
@@ -87,7 +94,8 @@ export default{
             
             }
             else{
-                success.value = true;
+                error.value = true;
+                success.value = false
             }
             
             
@@ -165,6 +173,11 @@ button:hover {
 }
 .error-message{
   color: #e74c3c;
+  font-size: 0.8rem;
+  font-family: "Fira sans";
+}
+.success-message{
+  color: green;
   font-size: 0.8rem;
   font-family: "Fira sans";
 }

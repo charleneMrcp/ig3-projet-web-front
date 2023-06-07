@@ -3,7 +3,7 @@
     <div class="user"> 
         <ProfilNavBar/>
         <div class="main">
-            <RouterView/>
+            <RouterView/> 
         </div>
         
         
